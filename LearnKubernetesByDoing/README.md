@@ -154,3 +154,21 @@ This lab will allow you to practice the process of building a new Kubernetes clu
 
 - Log in to both worker nodes to perform the previous steps.
 
+<br>
+
+#### Initialize the Cluster
+
+- Initialize the Kubernetes cluster on the control plane node using kubeadm:
+
+    `sudo kubeadm init --pod-network-cidr 192.168.0.0/16 --kubernetes-version 1.27.11`
+
+- Set kubectl access:
+    ```bash
+    mkdir -p $HOME/.kube
+    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+    ```
+
+- Test access to the cluster:
+
+    `kubectl get nodes`
