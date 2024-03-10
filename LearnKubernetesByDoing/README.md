@@ -187,4 +187,24 @@ This lab will allow you to practice the process of building a new Kubernetes clu
 
 <br>
 
-#### 
+#### Join the Worker Nodes to the Cluster
+
+- In the control plane node, create the token and copy the kubeadm join command:
+
+    `kubeadm token create --print-join-command`
+
+    > Note: This output will be used as the next command for the worker nodes.
+
+- Copy the full output from the previous command used in the control plane node. This command starts with kubeadm join.
+
+- In both worker nodes, paste the full `kubeadm join` command to join the cluster. Use `sudo` to run it as root:
+
+    `sudo kubeadm join...`
+
+- In the control plane node, view the cluster status:
+
+    `kubectl get nodes`
+
+    > Note: You may have to wait a few moments to allow all nodes to become ready.
+
+<br><br><br>
