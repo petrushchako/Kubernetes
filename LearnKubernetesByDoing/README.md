@@ -314,3 +314,22 @@ Microservice applications can be quite complex but that complexity can offer man
 - You should be able to reach the robot shop app from your browser using the Kube master node's public IP:
 
     `http://$kube_master_public_ip:30080`
+
+<br>
+
+#### Scale up the MongoDB deployment to two replicas instead of just one
+
+- Edit the deployment descriptor:
+
+    `kubectl edit deployment mongodb -n robot-shop`
+
+- You should see some YAML describing the deployment object.
+
+    - Under `spec:`, look for the line that says `replicas: 1` and change it to `replicas: 2`.
+    - Save and exit.
+
+- Check the status of the deployment with:
+
+    `kubectl get deployment mongodb -n robot-shop`
+
+- After a few moments, the number of available replicas should be 2.
