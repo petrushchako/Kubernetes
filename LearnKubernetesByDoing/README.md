@@ -208,3 +208,9 @@ This lab will allow you to practice the process of building a new Kubernetes clu
     > Note: You may have to wait a few moments to allow all nodes to become ready.
 
 <br><br><br>
+
+## Deploying a Simple Service to Kubernetes
+
+### ABOUT THIS LAB
+
+Deployments and services are at the core of what makes Kubernetes a great way to manage complex application infrastructures. In this hands-on lab, you will have an opportunity to get hands-on with a Kubernetes cluster and build a simple deployment, coupled with a service providing access to it. You will create a deployment and a service which can be accessed by other pods in the cluster.
