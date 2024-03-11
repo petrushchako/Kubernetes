@@ -281,3 +281,11 @@ Deployments and services are at the core of what makes Kubernetes a great way to
 - Use `kubectl exec` to query the store-products service from the busybox testing pod.
 
     `kubectl exec busybox -- curl -s store-products`
+
+
+<br><br><br>
+
+## Deploying a Microservice Application to Kubernetes
+
+### Introduction
+Microservice applications can be quite complex but that complexity can offer many benefits. Kubernetes can help you take advantage of those benefits by making these complex infrastructures easier to manage through automation. In this hands-on lab, you will see the value of Kubernetes firsthand as you deploy a complex microservice architecture to the cluster and then independently scale some of its components.
