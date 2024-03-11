@@ -214,3 +214,35 @@ This lab will allow you to practice the process of building a new Kubernetes clu
 ### ABOUT THIS LAB
 
 Deployments and services are at the core of what makes Kubernetes a great way to manage complex application infrastructures. In this hands-on lab, you will have an opportunity to get hands-on with a Kubernetes cluster and build a simple deployment, coupled with a service providing access to it. You will create a deployment and a service which can be accessed by other pods in the cluster.
+
+#### Create a deployment for the store-products service with four replicas
+
+- Log in to the Kube master node.
+
+- Create the deployment with four replicas:
+
+    ```yaml
+    cat << EOF | kubectl apply -f -
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+    name: store-products
+    labels:
+        app: store-products
+    spec:
+    replicas: 4
+    selector:
+        matchLabels:
+        app: store-products
+    template:
+        metadata:
+        labels:
+            app: store-products
+        spec:
+        containers:
+        - name: store-products
+            image: linuxacademycontent/store-products:1.0.0
+            ports:
+            - containerPort: 80
+    EOF
+    ```
