@@ -407,4 +407,28 @@ Most of these commands need to be run on each of the nodes. Pay attention though
 
 <br>
 
-#### 
+#### Note: Complete the following steps on the NODES ONLY!
+
+10. Initialize the cluster using the IP range for Flannel:
+
+    `kubeadm init --pod-network-cidr=10.244.0.0/16`
+
+11. **Copy the** `kubeadmn join` **command that is in the output**. We will need this later.
+
+12. Exit sudo, copy the admin.conf to your home directory, and take ownership.
+    
+    ```bash
+    mkdir -p $HOME/.kube
+    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+    ```
+
+13. Deploy Flannel:
+    
+    ```bash
+    kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel-old.yaml
+    ```
+
+14. Check the cluster state:
+
+    `kubectl get pods --all-namespaces`
