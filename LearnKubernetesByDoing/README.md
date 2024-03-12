@@ -442,3 +442,21 @@ Most of these commands need to be run on each of the nodes. Pay attention though
     `kubectl get nodes`
 
 <br>
+
+#### Create and Scale a Deployment Using kubectl<br>Note: These commands will only be run on the master node.
+
+16. Create a simple deployment:
+
+    `kubectl create deployment nginx --image=nginx`
+17. Inspect the pod:
+
+    `kubectl get pods`
+
+18. Scale the deployment:
+
+    `kubectl scale deployment nginx --replicas=4`
+
+19. Inspect the pods. We should have four now:
+
+    `kubectl get pods`
+    
