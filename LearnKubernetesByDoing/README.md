@@ -432,3 +432,13 @@ Most of these commands need to be run on each of the nodes. Pay attention though
 14. Check the cluster state:
 
     `kubectl get pods --all-namespaces`
+
+<br>
+
+#### Note: Complete the following steps on the NODES ONLY!
+
+15. Run the `join` command that you copied earlier, this requires running the command prefaced with `sudo` on the nodes (if we hadn't run `sudo su` to begin with). Then we'll check the nodes from the master.
+
+    `kubectl get nodes`
+
+<br>
