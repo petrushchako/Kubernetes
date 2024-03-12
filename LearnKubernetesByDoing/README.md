@@ -211,7 +211,7 @@ This lab will allow you to practice the process of building a new Kubernetes clu
 
 ## Deploying a Simple Service to Kubernetes
 
-### ABOUT THIS LAB
+#### ABOUT THIS LAB
 
 Deployments and services are at the core of what makes Kubernetes a great way to manage complex application infrastructures. In this hands-on lab, you will have an opportunity to get hands-on with a Kubernetes cluster and build a simple deployment, coupled with a service providing access to it. You will create a deployment and a service which can be accessed by other pods in the cluster.
 
@@ -287,7 +287,7 @@ Deployments and services are at the core of what makes Kubernetes a great way to
 
 ## Deploying a Microservice Application to Kubernetes
 
-### Introduction
+#### Introduction
 Microservice applications can be quite complex but that complexity can offer many benefits. Kubernetes can help you take advantage of those benefits by making these complex infrastructures easier to manage through automation. In this hands-on lab, you will see the value of Kubernetes firsthand as you deploy a complex microservice architecture to the cluster and then independently scale some of its components.
 
 <br>
@@ -333,3 +333,11 @@ Microservice applications can be quite complex but that complexity can offer man
     `kubectl get deployment mongodb -n robot-shop`
 
 - After a few moments, the number of available replicas should be 2.
+
+
+<br><br><br>
+
+## Creating a Kubernetes Cluster
+
+#### ABOUT THIS LAB
+In this hands-on lab, we will install and configure a Kubernetes cluster consisting of 1 master and 2 nodes. Once the installation and configuration are complete, we will have a 3-node Kubernetes cluster that uses Flannel as the network overlay.
