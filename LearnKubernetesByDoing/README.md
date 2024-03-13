@@ -534,3 +534,12 @@ Create a file named pod.yaml (vi pod.yaml) and paste in the following:
 Apply the YAML to the Kubernetes cluster with the following command:
 
     `kubectl apply -f pod.yaml`
+
+<br>
+
+#### Verify that the pod is running on the correct node
+Verify that pod is on correct node with the following command
+
+    `kubectl get pod -o wide`
+
+    You should see the node with the label in the node column
