@@ -460,3 +460,53 @@ Most of these commands need to be run on each of the nodes. Pay attention though
 
     `kubectl get pods`
     
+
+<br><br><br><br>
+
+## Working with Kubernetes Cluster
+
+## Deploying a Pod to a Node with a Label in Kubernetes
+
+### ABOUT THIS LAB
+
+In this hands-on lab, you will need to create the pod YAML necessary to create a pod and assign that pod to a specific node with the label disk=ssd. First, find the node with that label, creat the YAML, then apply the YAML to the provided Kubernetes cluster. You will have completed this hands-on lab when you have verified that the pod is running successfully on the correct node.
+
+
+- List all the nodes in the cluster.
+    Use the following command to list the nodes in your cluster:
+
+    `kubectl get nodes`
+
+    We should see three nodes: one master and two workers.
+
+- List all the pods in all namespaces.
+
+    Use the following command to list the pods in all namespaces:
+
+    `kubectl get pods --all-namespaces`
+
+- List all the namespaces in the cluster.
+    Use the following command to list all the namespaces in the cluster:
+
+    `kubectl get namespaces`
+
+    Here, we should see four namespaces: default, kube-public, kube-system, and kube-node-lease.
+
+- Check to see if there are any pods running in the default namespace.
+    Use the following command to list the pods in the default namespace:
+
+    `kubectl get pods`
+
+    We should see that there aren't any pods in the default namespace.
+
+- Find the IP address of the API server running on the master node.
+    Use the following command to find the IP address of the API server:
+
+    `kubectl get pods --all-namespaces -o wide`
+
+- List the labels for all nodes in the cluster
+    Use the following command to list the labels for all nodes:
+
+    `kubectl get no --show-labels`
+
+    We should see the label disk=ssd for one of the nodes.
