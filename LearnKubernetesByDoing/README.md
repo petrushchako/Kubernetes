@@ -510,3 +510,27 @@ In this hands-on lab, you will need to create the pod YAML necessary to create a
     `kubectl get no --show-labels`
 
     We should see the label disk=ssd for one of the nodes.
+
+
+<br>
+
+#### Create the pod YAML that will run on the node labeled disk=ssd
+
+Create a file named pod.yaml (vi pod.yaml) and paste in the following:
+
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+    name: nginx
+    spec:
+    containers:
+        - name: nginx
+        image: nginx
+    nodeSelector:
+        disk: ssd
+    ```
+
+Apply the YAML to the Kubernetes cluster with the following command:
+
+    `kubectl apply -f pod.yaml`
