@@ -567,4 +567,22 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 <br>
 
+#### Get the Kubernetes gpg key, and add it to your repository.
+
+- In all three terminals, run the following command to get the Kubernetes gpg key:
+
+    `curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -`
+
+- Then add it to your repository:
+  
+    ```shell
+    cat << EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+    deb https://apt.kubernetes.io/ kubernetes-xenial main
+    EOF
+    ```
+
+- Update the packages:
+
+    `sudo apt update`
+
 #### 
