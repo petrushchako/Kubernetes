@@ -665,3 +665,34 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
     > We should see a status of OK.
 
+<br>
+
+#### Execute a command directly on a pod.
+
+- In the original Controller server terminal, hit `Ctrl+C` to exit out of the running program.
+
+- Still in Controller, execute the nginx version command from a pod (using the same <pod_name> as before):
+
+    `kubectl exec -it <pod_name> -- nginx -v`
+
+<br>
+
+#### Create a service, and verify connectivity on the node port.
+
+- In the original Controller server terminal, run the following command to create a NodePort service:
+
+    `kubectl expose deployment nginx --port 80 --type NodePort`
+
+- View the service:
+
+    `kubectl get services`
+
+- Get the node the pod resides on.
+
+    `kubectl get po -o wide`
+
+- Verify the connectivity by using curl on the NODE from the previous step and the port from when we viewed the service. Make sure to replace YOUR_NODE and YOUR_PORT with appropriate values for this lab.
+
+    `curl -I YOUR_NODE:YOUR_PORT`
+
+    > We should see a status of OK.
