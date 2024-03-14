@@ -606,4 +606,11 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 <br>
 
-#### 
+#### Set up local kubeconfig.
+- In the Controller server terminal, run the following commands to set up local kubeconfig:
+
+    ```bash
+    sudo mkdir -p $HOME/.kube
+    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+    ```
