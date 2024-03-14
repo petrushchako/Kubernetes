@@ -614,3 +614,11 @@ In this lab, you will build a cluster from scratch, as well as test the componen
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
     ```
+
+#### Apply the flannel CNI plugin as a network overlay.
+
+- In the Controller server terminal, run the following command to apply flannel:
+
+     `kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml`
+
+<br>
