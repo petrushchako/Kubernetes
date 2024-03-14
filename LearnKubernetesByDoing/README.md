@@ -585,4 +585,17 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
     `sudo apt update`
 
+
+> After completing these steps, your system is configured to install Kubernetes packages using the apt package manager. Now, you can proceed with installing Kubernetes components on your system.
+
+<br>
+
+#### Install Docker, kubelet, kubeadm, and kubectl.
+
+- In all three terminals, run the following command to install Docker, kubelet, kubeadm, and kubectl:
+
+    `sudo apt install -y docker-ce=5:19.03.10~3-0~ubuntu-focal kubelet=1.18.5-00 kubeadm=1.18.5-00 kubectl=1.18.5-00`
+
+<br>
+
 #### 
