@@ -516,7 +516,7 @@ In this hands-on lab, you will need to create the pod YAML necessary to create a
 
 #### Create the pod YAML that will run on the node labeled disk=ssd
 
-Create a file named pod.yaml (vi pod.yaml) and paste in the following:
+- Create a file named pod.yaml (vi pod.yaml) and paste in the following:
 
     ```yaml
     apiVersion: v1
@@ -531,15 +531,24 @@ Create a file named pod.yaml (vi pod.yaml) and paste in the following:
         disk: ssd
     ```
 
-Apply the YAML to the Kubernetes cluster with the following command:
+- Apply the YAML to the Kubernetes cluster with the following command:
 
     `kubectl apply -f pod.yaml`
 
 <br>
 
 #### Verify that the pod is running on the correct node
-Verify that pod is on correct node with the following command
+- Verify that pod is on correct node with the following command
 
     `kubectl get pod -o wide`
 
     You should see the node with the label in the node column
+
+
+
+<br><br><br>
+
+## Installing and Testing the Components of a Kubernetes Cluster
+
+### ABOUT THIS LAB
+In this lab, you will build a cluster from scratch, as well as test the components of the cluster (including the deployments, pods, port forwarding, and services) and execute a command from within a pod. In order to build the Kubernetes cluster, we need to install the container runtime, as well as kubeadm, kubectl, and kubelet. We will then initialize the cluster, add our CNI, and add the nodes to the cluster.
