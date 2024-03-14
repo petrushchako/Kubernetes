@@ -633,3 +633,24 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
     `sudo kubeadm join <your unique string from the output of kubeadm init>`
 
+<br>
+
+#### Run a deployment that includes at least one pod, and verify it was successful.
+
+- In the Controller server terminal, run the following command to run a deployment of ngnix:
+
+    `kubectl create deployment nginx --image=nginx`
+
+- Verify its success:
+
+    `kubectl get deployments`
+
+####  Verify the pod is running and available.
+
+- In the Controller server terminal, run the following command to verify the pod is up and running:
+
+    `kubectl get pods`
+
+<br>
+
+#### 
