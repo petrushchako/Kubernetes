@@ -622,3 +622,14 @@ In this lab, you will build a cluster from scratch, as well as test the componen
      `kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml`
 
 <br>
+
+#### Join the worker nodes to the cluster, and verify they have joined successfully.
+
+- When we ran `sudo kubeadm init` on the Controller node, there was a `kubeadmin join` command in the output. You'll see it right under this text:
+
+    > You can now join any number of machines by running the following on each node as root:
+
+- To join worker nodes to the cluster, we need to run that command, as root (we'll just preface it with sudo) on each of them. It should look something like this:
+
+    `sudo kubeadm join <your unique string from the output of kubeadm init>`
+
