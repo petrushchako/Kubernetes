@@ -653,4 +653,15 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 <br>
 
-#### 
+#### Use port forwarding to extend port 80 to 8081, and verify access to the pod directly.
+
+- In the Controller server terminal, run the following command to forward the container port 80 to 8081 (replace <pod_name> with the name in the output from the previous command):
+
+    `kubectl port-forward <pod_name> 8081:80`
+
+- Open a new terminal session and log in to the Controller server. Then, run this command to verify we can access this container directly:
+
+    `curl -I http://127.0.0.1:8081`
+
+    > We should see a status of OK.
+
