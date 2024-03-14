@@ -552,3 +552,19 @@ In this hands-on lab, you will need to create the pod YAML necessary to create a
 
 ### ABOUT THIS LAB
 In this lab, you will build a cluster from scratch, as well as test the components of the cluster (including the deployments, pods, port forwarding, and services) and execute a command from within a pod. In order to build the Kubernetes cluster, we need to install the container runtime, as well as kubeadm, kubectl, and kubelet. We will then initialize the cluster, add our CNI, and add the nodes to the cluster.
+
+<br>
+
+#### Get the Docker gpg, and add it to your repository.
+
+- In all three terminals, run the following command to get the Docker gpg key:
+
+    `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
+
+- Then add it to your repository:
+
+    `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
+
+<br>
+
+#### 
