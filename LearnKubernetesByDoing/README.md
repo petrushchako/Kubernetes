@@ -598,4 +598,12 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 <br>
 
+#### Initialize the Kubernetes cluster.
+
+- In the Controller server terminal, run the following command to initialize the cluster using kubeadm:
+
+    `sudo kubeadm init --pod-network-cidr=10.244.0.0/16`
+
+<br>
+
 #### 
