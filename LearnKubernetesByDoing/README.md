@@ -754,3 +754,15 @@ In this hands-on lab, you will be presented with a three-node cluster. You will 
     `kubectl get pods`
 
 <br>
+
+#### Perform a DNS query to the service.
+
+- Use the following command to query the DNS name of the nginx service:
+
+    `kubectl exec busybox -- nslookup nginx`
+
+#### Record the DNS name.
+
+- Record the name of:
+
+    `[service-name].default.svc.cluster.local`
