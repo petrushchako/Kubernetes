@@ -725,4 +725,32 @@ In this hands-on lab, you will be presented with a three-node cluster. You will 
 - Use this command to verify the service was created:
 
     `kubectl get services`
-    
+
+<br>
+
+#### Create a pod that will allow you to query DNS, and verify it’s been created.
+
+- Using an editor of your choice (e.g., Vim and the command vim busybox.yaml), enter the following YAML to create the busybox pod spec:
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+    name: busybox
+    spec:
+    containers:
+    - image: busybox:1.28.4
+        command:
+        - sleep
+        - "3600"
+        name: busybox
+    restartPolicy: Always
+    ```  
+- Use the following command to create the busybox pod:
+
+    `kubectl create -f busybox.yaml`
+
+- Use the following command to verify the pod was created successfully:
+
+    `kubectl get pods`
+
+<br>
