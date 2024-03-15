@@ -704,3 +704,14 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 ### ABOUT THIS LAB
 In this hands-on lab, you will be presented with a three-node cluster. You will be creating a simple nginx deployment, in which you must create a service from that deployment. In order to accomplish this, you will use the kubectl command line to create the deployment. Then, you will expose the deployment to create the service. When you have verified the service is up and running, you will create a busybox pod to test the DNS resolution to that service.
+
+#### Create an nginx deployment, and verify it was successful.
+
+- Use this command to create an nginx deployment:
+
+    `kubectl run nginx --image=nginx`
+
+- Use this command to verify deployment was successful:
+
+    `kubectl get deployments`
+
