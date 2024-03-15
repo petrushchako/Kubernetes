@@ -715,3 +715,14 @@ In this hands-on lab, you will be presented with a three-node cluster. You will 
 
     `kubectl get deployments`
 
+<br>
+
+#### Create a service, and verify the service was successful.
+- Use this command to create a service:
+
+    `kubectl expose deployment nginx --port 80 --type NodePort`
+
+- Use this command to verify the service was created:
+
+    `kubectl get services`
+    
