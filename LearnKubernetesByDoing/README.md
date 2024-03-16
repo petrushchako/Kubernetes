@@ -796,6 +796,9 @@ In this hands-on lab, you will be presented with a three-node cluster. One node 
     `kubectl taint node <NODE_NAME> node-type=prod:NoSchedule`
 
 
+    > Untaint command:
+    > To untaint a node in your Kubernetes cluster, you can use the kubectl taint command with the `-` prefix to remove a taint from the node. Here's how you can do it:
+    > `kubectl taint nodes <node-name> <taint-key>:<taint-value>-`
 <br>
 
 #### Schedule a pod to the dev environment.
