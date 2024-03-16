@@ -824,3 +824,49 @@ In this hands-on lab, you will be presented with a three-node cluster. One node 
 - Create the pod:
 
     `kubectl create -f dev-pod.yaml`
+
+<br>
+
+#### Schedule a pod to the prod environment.
+
+- Create the prod-deployment.yaml file:
+
+    `vim prod-deployment.yaml`
+
+- Enter the following YAML to specify a pod that will be scheduled to the prod environment:
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+    name: prod
+    spec:
+    replicas: 1
+    selector:
+        matchLabels:
+        app: prod
+    template:
+        metadata:
+        labels:
+            app: prod
+        spec:
+        containers:
+        - args:
+            - sleep
+            - "3600"
+            image: busybox
+            name: main
+        tolerations:
+        - key: node-type
+            operator: Equal
+            value: prod
+            effect: NoSchedule
+    ```
+
+- Save and quit the file by pressing Escape followed by wq!.
+
+- Create the pod:
+
+    `kubectl create -f prod-deployment.yaml`
+
+<br>
+
