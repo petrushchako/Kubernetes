@@ -773,3 +773,14 @@ In this hands-on lab, you will be presented with a three-node cluster. You will 
 - Record the name of:
 
     `[service-name].default.svc.cluster.local`
+
+
+
+<br><br><br>
+
+## Scheduling Pods with Taints and Tolerations in Kubernetes
+
+### ABOUT THIS LAB
+In this hands-on lab, you will be presented with a three-node cluster. One node is the master, and the other two are worker nodes. You will be responsible for splitting up the two worker nodes and making one of the worker nodes a production (prod) environment node and the other a development (dev) environment node. The purpose of identifying these two types (prod and dev) is to not accidentally deploy pods into the production environment. You will use taints and tolerations to achieve this, and then you will deploy two pods: One pod will be scheduled to the dev environment, and one pod will be scheduled to the prod environment. When you have verified the two pods are up and running and they are located within the correct environments, you may consider this hands-on lab complete.
+
+
