@@ -783,6 +783,7 @@ In this hands-on lab, you will be presented with a three-node cluster. You will 
 ### ABOUT THIS LAB
 In this hands-on lab, you will be presented with a three-node cluster. One node is the master, and the other two are worker nodes. You will be responsible for splitting up the two worker nodes and making one of the worker nodes a production (prod) environment node and the other a development (dev) environment node. The purpose of identifying these two types (prod and dev) is to not accidentally deploy pods into the production environment. You will use taints and tolerations to achieve this, and then you will deploy two pods: One pod will be scheduled to the dev environment, and one pod will be scheduled to the prod environment. When you have verified the two pods are up and running and they are located within the correct environments, you may consider this hands-on lab complete.
 
+> Hint: When copying and pasting code into Vim from the lab guide, first enter `:set paste` (and then `i` to enter insert mode) to avoid adding unnecessary spaces and hashes.
 
 #### Taint one of the worker nodes to repel work.
 
@@ -793,3 +794,33 @@ In this hands-on lab, you will be presented with a three-node cluster. One node 
 - Taint the node, replacing <NODE_NAME> with one of the worker node names returned in the previous command:
 
     `kubectl taint node <NODE_NAME> node-type=prod:NoSchedule`
+
+
+<br>
+
+#### Schedule a pod to the dev environment.
+
+- Create the dev-pod.yaml file:
+
+    `vim dev-pod.yaml`
+
+- Enter the following YAML to specify a pod that will be scheduled to the dev environment:
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+    name: dev-pod
+    labels:
+        app: busybox
+    spec:
+    containers:
+    - name: dev
+        image: busybox
+        command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
+    ```
+
+- Save and quit the file by pressing Escape followed by wq!.
+
+- Create the pod:
+
+    `kubectl create -f dev-pod.yaml`
