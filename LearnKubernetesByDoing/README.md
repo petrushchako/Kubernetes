@@ -761,6 +761,13 @@ In this hands-on lab, you will be presented with a three-node cluster. You will 
 
     `kubectl exec busybox -- nslookup nginx`
 
+    or
+
+    ```bash
+    kubectl exec -it busybox -- sh
+    nslookup nginx
+    ```
+
 #### Record the DNS name.
 
 - Record the name of:
