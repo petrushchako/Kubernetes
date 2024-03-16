@@ -870,3 +870,18 @@ In this hands-on lab, you will be presented with a three-node cluster. One node 
 
 <br>
 
+#### Verify each pod has been scheduled to the correct environment.
+
+- Verify the pods have been scheduled:
+
+    `kubectl get pods -o wide`
+
+- Scale up the deployment:
+
+    `kubectl scale deployment/prod --replicas=3`
+
+- Look at our deployment again:
+
+    `kubectl get pods -o wide`
+
+> We should see that two more pods have been deployed.
