@@ -979,4 +979,28 @@ In this hands-on lab, you will be presented with a 3-node cluster. You will need
 
 <br>
 
-### 
+### Perform a Rolling Update to Version 2 of the Application, and Verify Its Success
+- Start another terminal session logged in to the same Kube Master server. There, use the following curl loop command to see the version change as you perform the rolling update. Replace `<ip-address-of-the-service>` with the `Cluster-IP` of the `NodePort` service you copied before:
+
+- while true; do curl http://<ip-address-of-the-service>; done
+
+- Perform the update in the original terminal session (while the curl loop is running in the second terminal session):
+
+    `kubectl set image deployments/kubeserve app=linuxacademycontent/kubeserve:v2 --v 6`
+
+    After you run this command, if you view the second terminal session, you should see v2 of the pod displayed in the output. Press CTRL+C to stop.
+
+- In the first terminal, view the additional `ReplicaSet` created during the update:
+
+    `kubectl get replicasets`
+    You should see 2 replicasets.
+
+- Verify all pods are up and running:
+
+    `kubectl get pods`
+    You should still see 5 pod replicas.
+
+- View the rollout history:
+
+    `kubectl rollout history deployment kubeserve`
+    You should see 2 rollouts.
