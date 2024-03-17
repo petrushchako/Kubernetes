@@ -888,3 +888,12 @@ In this hands-on lab, you will be presented with a three-node cluster. One node 
     `kubectl get pods -o wide`
 
 > We should see that two more pods have been deployed.
+
+
+<br><br><br>
+
+## Performing a Rolling Update of an Application in Kubernetes
+
+### ABOUT THIS LAB
+
+In this hands-on lab, you will be presented with a 3-node cluster. You will need to deploy your application, so you can begin serving your end users. You will deploy the image from `linuxacademycontent/kubeserve:v1` and then verify the deployment was successful. Once your application is running and serving clients, you will perform a rolling update, making sure the rollout is successful and there is no downtime for your end users. You will make use of the `kubectl` command-line tool to perform all operations, in combination with the `set image` command to perform the rolling update to the new version. When you have verified the end users are now using version 2 of the app versus version 1, you may consider this hands-on lab complete.
