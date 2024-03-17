@@ -1004,3 +1004,16 @@ In this hands-on lab, you will be presented with a 3-node cluster. You will need
 
     `kubectl rollout history deployment kubeserve`
     You should see 2 rollouts.
+
+
+<br><br><br>
+
+## Storage and Security
+
+<br>
+
+## Creating Persistent Storage for Pods in Kubernetes
+
+#### ABOUT THIS LAB
+Pods in Kubernetes are ephemeral, which makes the local container filesytem unusable, as you can never ensure the pod will remain. To decouple your storage from your pods, you will be creating a persistent volume to mount for use by your pods. You will be deploying a redis image. You will first create the persistent volume, then create the pod YAML for deploying the pod to mount the volume. You will then delete the pod and create a new pod, which will access that same volume.
+
