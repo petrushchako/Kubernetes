@@ -156,7 +156,7 @@ This lab will allow you to practice the process of building a new Kubernetes clu
 
 <br>
 
-#### Initialize the Cluster
+### Initialize the Cluster
 
 - Initialize the Kubernetes cluster on the control plane node using kubeadm:
 
@@ -175,7 +175,7 @@ This lab will allow you to practice the process of building a new Kubernetes clu
 
 <br>
 
-#### Install the Calico Network Add-On
+### Install the Calico Network Add-On
 
 - On the control plane node, install Calico Networking:
 
@@ -187,7 +187,7 @@ This lab will allow you to practice the process of building a new Kubernetes clu
 
 <br>
 
-#### Join the Worker Nodes to the Cluster
+### Join the Worker Nodes to the Cluster
 
 - In the control plane node, create the token and copy the kubeadm join command:
 
@@ -215,7 +215,7 @@ This lab will allow you to practice the process of building a new Kubernetes clu
 
 Deployments and services are at the core of what makes Kubernetes a great way to manage complex application infrastructures. In this hands-on lab, you will have an opportunity to get hands-on with a Kubernetes cluster and build a simple deployment, coupled with a service providing access to it. You will create a deployment and a service which can be accessed by other pods in the cluster.
 
-#### Create a deployment for the store-products service with four replicas
+### Create a deployment for the store-products service with four replicas
 
 - Log in to the Kube master node.
 
@@ -249,7 +249,7 @@ Deployments and services are at the core of what makes Kubernetes a great way to
 
 <br>
 
-#### Create a store-products service and verify that you can access it from the busybox testing pod
+### Create a store-products service and verify that you can access it from the busybox testing pod
 
 - Create a service for the store-products pods:
     ```yaml
@@ -292,7 +292,7 @@ Microservice applications can be quite complex but that complexity can offer man
 
 <br>
 
-#### Deploy the Stan's Robot Shop app to the cluster
+### Deploy the Stan's Robot Shop app to the cluster
 
 - Clone the Git repo that contains the pre-made descriptors:
     
@@ -317,7 +317,7 @@ Microservice applications can be quite complex but that complexity can offer man
 
 <br>
 
-#### Scale up the MongoDB deployment to two replicas instead of just one
+### Scale up the MongoDB deployment to two replicas instead of just one
 
 - Edit the deployment descriptor:
 
@@ -346,7 +346,7 @@ In this hands-on lab, we will install and configure a Kubernetes cluster consist
 
 #### Solution
 
-#### Install Docker and Kubernetes on All Servers
+### Install Docker and Kubernetes on All Servers
 Most of these commands need to be run on each of the nodes. Pay attention though. Down at Step 10, we are going to do a little bit on just the master, and down at Step 15 we'll run something on just the nodes. There are notes down there, just be watching for them.
 
 1. Once we have logged in, we need to elevate privileges using sudo:
@@ -443,7 +443,7 @@ Most of these commands need to be run on each of the nodes. Pay attention though
 
 <br>
 
-#### Create and Scale a Deployment Using kubectl<br>Note: These commands will only be run on the master node.
+### Create and Scale a Deployment Using kubectl<br>Note: These commands will only be run on the master node.
 
 16. Create a simple deployment:
 
@@ -467,7 +467,7 @@ Most of these commands need to be run on each of the nodes. Pay attention though
 
 ## Deploying a Pod to a Node with a Label in Kubernetes
 
-### ABOUT THIS LAB
+#### ABOUT THIS LAB
 
 In this hands-on lab, you will need to create the pod YAML necessary to create a pod and assign that pod to a specific node with the label disk=ssd. First, find the node with that label, creat the YAML, then apply the YAML to the provided Kubernetes cluster. You will have completed this hands-on lab when you have verified that the pod is running successfully on the correct node.
 
@@ -514,7 +514,7 @@ In this hands-on lab, you will need to create the pod YAML necessary to create a
 
 <br>
 
-#### Create the pod YAML that will run on the node labeled disk=ssd
+### Create the pod YAML that will run on the node labeled disk=ssd
 
 - Create a file named pod.yaml (vi pod.yaml) and paste in the following:
 
@@ -537,7 +537,7 @@ In this hands-on lab, you will need to create the pod YAML necessary to create a
 
 <br>
 
-#### Verify that the pod is running on the correct node
+### Verify that the pod is running on the correct node
 - Verify that pod is on correct node with the following command
 
     `kubectl get pod -o wide`
@@ -550,12 +550,12 @@ In this hands-on lab, you will need to create the pod YAML necessary to create a
 
 ## Installing and Testing the Components of a Kubernetes Cluster
 
-### ABOUT THIS LAB
+#### ABOUT THIS LAB
 In this lab, you will build a cluster from scratch, as well as test the components of the cluster (including the deployments, pods, port forwarding, and services) and execute a command from within a pod. In order to build the Kubernetes cluster, we need to install the container runtime, as well as kubeadm, kubectl, and kubelet. We will then initialize the cluster, add our CNI, and add the nodes to the cluster.
 
 <br>
 
-#### Get the Docker gpg, and add it to your repository.
+### Get the Docker gpg, and add it to your repository.
 
 - In all three terminals, run the following command to get the Docker gpg key:
 
@@ -567,7 +567,7 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 <br>
 
-#### Get the Kubernetes gpg key, and add it to your repository.
+### Get the Kubernetes gpg key, and add it to your repository.
 
 - In all three terminals, run the following command to get the Kubernetes gpg key:
 
@@ -590,7 +590,7 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 <br>
 
-#### Install Docker, kubelet, kubeadm, and kubectl.
+### Install Docker, kubelet, kubeadm, and kubectl.
 
 - In all three terminals, run the following command to install Docker, kubelet, kubeadm, and kubectl:
 
@@ -598,7 +598,7 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 <br>
 
-#### Initialize the Kubernetes cluster.
+### Initialize the Kubernetes cluster.
 
 - In the Controller server terminal, run the following command to initialize the cluster using kubeadm:
 
@@ -606,7 +606,7 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 <br>
 
-#### Set up local kubeconfig.
+### Set up local kubeconfig.
 - In the Controller server terminal, run the following commands to set up local kubeconfig:
 
     ```bash
@@ -615,7 +615,7 @@ In this lab, you will build a cluster from scratch, as well as test the componen
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
     ```
 
-#### Apply the flannel CNI plugin as a network overlay.
+### Apply the flannel CNI plugin as a network overlay.
 
 - In the Controller server terminal, run the following command to apply flannel:
 
@@ -623,7 +623,7 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 <br>
 
-#### Join the worker nodes to the cluster, and verify they have joined successfully.
+### Join the worker nodes to the cluster, and verify they have joined successfully.
 
 - When we ran `sudo kubeadm init` on the Controller node, there was a `kubeadmin join` command in the output. You'll see it right under this text:
 
@@ -635,7 +635,7 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 <br>
 
-#### Run a deployment that includes at least one pod, and verify it was successful.
+### Run a deployment that includes at least one pod, and verify it was successful.
 
 - In the Controller server terminal, run the following command to run a deployment of ngnix:
 
@@ -645,7 +645,7 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
     `kubectl get deployments`
 
-####  Verify the pod is running and available.
+###  Verify the pod is running and available.
 
 - In the Controller server terminal, run the following command to verify the pod is up and running:
 
@@ -653,7 +653,7 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 <br>
 
-#### Use port forwarding to extend port 80 to 8081, and verify access to the pod directly.
+### Use port forwarding to extend port 80 to 8081, and verify access to the pod directly.
 
 - In the Controller server terminal, run the following command to forward the container port 80 to 8081 (replace <pod_name> with the name in the output from the previous command):
 
@@ -667,7 +667,7 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 <br>
 
-#### Execute a command directly on a pod.
+### Execute a command directly on a pod.
 
 - In the original Controller server terminal, hit `Ctrl+C` to exit out of the running program.
 
@@ -677,7 +677,7 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 <br>
 
-#### Create a service, and verify connectivity on the node port.
+### Create a service, and verify connectivity on the node port.
 
 - In the original Controller server terminal, run the following command to create a NodePort service:
 
@@ -702,10 +702,10 @@ In this lab, you will build a cluster from scratch, as well as test the componen
 
 ## Creating a Service and Discovering DNS Names in Kubernetes
 
-### ABOUT THIS LAB
+#### ABOUT THIS LAB
 In this hands-on lab, you will be presented with a three-node cluster. You will be creating a simple nginx deployment, in which you must create a service from that deployment. In order to accomplish this, you will use the kubectl command line to create the deployment. Then, you will expose the deployment to create the service. When you have verified the service is up and running, you will create a busybox pod to test the DNS resolution to that service.
 
-#### Create an nginx deployment, and verify it was successful.
+### Create an nginx deployment, and verify it was successful.
 
 - Use this command to create an nginx deployment:
 
@@ -717,7 +717,7 @@ In this hands-on lab, you will be presented with a three-node cluster. You will 
 
 <br>
 
-#### Create a service, and verify the service was successful.
+### Create a service, and verify the service was successful.
 - Use this command to create a service:
 
     `kubectl expose deployment nginx --port 80 --type NodePort`
@@ -728,7 +728,7 @@ In this hands-on lab, you will be presented with a three-node cluster. You will 
 
 <br>
 
-#### Create a pod that will allow you to query DNS, and verify it’s been created.
+### Create a pod that will allow you to query DNS, and verify it’s been created.
 
 - Using an editor of your choice (e.g., Vim and the command vim busybox.yaml), enter the following YAML to create the busybox pod spec:
     ```yaml
@@ -755,7 +755,7 @@ In this hands-on lab, you will be presented with a three-node cluster. You will 
 
 <br>
 
-#### Perform a DNS query to the service.
+### Perform a DNS query to the service.
 
 - Use the following command to query the DNS name of the nginx service:
 
@@ -768,7 +768,7 @@ In this hands-on lab, you will be presented with a three-node cluster. You will 
     nslookup nginx
     ```
 
-#### Record the DNS name.
+### Record the DNS name.
 
 - Record the name of:
 
@@ -780,12 +780,12 @@ In this hands-on lab, you will be presented with a three-node cluster. You will 
 
 ## Scheduling Pods with Taints and Tolerations in Kubernetes
 
-### ABOUT THIS LAB
+#### ABOUT THIS LAB
 In this hands-on lab, you will be presented with a three-node cluster. One node is the master, and the other two are worker nodes. You will be responsible for splitting up the two worker nodes and making one of the worker nodes a production (prod) environment node and the other a development (dev) environment node. The purpose of identifying these two types (prod and dev) is to not accidentally deploy pods into the production environment. You will use taints and tolerations to achieve this, and then you will deploy two pods: One pod will be scheduled to the dev environment, and one pod will be scheduled to the prod environment. When you have verified the two pods are up and running and they are located within the correct environments, you may consider this hands-on lab complete.
 
 > Hint: When copying and pasting code into Vim from the lab guide, first enter `:set paste` (and then `i` to enter insert mode) to avoid adding unnecessary spaces and hashes.
 
-#### Taint one of the worker nodes to repel work.
+### Taint one of the worker nodes to repel work.
 
 - List out the nodes:
 
@@ -801,7 +801,7 @@ In this hands-on lab, you will be presented with a three-node cluster. One node 
     > `kubectl taint nodes <node-name> <taint-key>:<taint-value>-`
 <br>
 
-#### Schedule a pod to the dev environment.
+### Schedule a pod to the dev environment.
 
 - Create the dev-pod.yaml file:
 
@@ -830,7 +830,7 @@ In this hands-on lab, you will be presented with a three-node cluster. One node 
 
 <br>
 
-#### Schedule a pod to the prod environment.
+### Schedule a pod to the prod environment.
 
 - Create the prod-deployment.yaml file:
 
@@ -873,7 +873,7 @@ In this hands-on lab, you will be presented with a three-node cluster. One node 
 
 <br>
 
-#### Verify each pod has been scheduled to the correct environment.
+### Verify each pod has been scheduled to the correct environment.
 
 - Verify the pods have been scheduled:
 
@@ -894,6 +894,53 @@ In this hands-on lab, you will be presented with a three-node cluster. One node 
 
 ## Performing a Rolling Update of an Application in Kubernetes
 
-### ABOUT THIS LAB
+#### ABOUT THIS LAB
 
 In this hands-on lab, you will be presented with a 3-node cluster. You will need to deploy your application, so you can begin serving your end users. You will deploy the image from `linuxacademycontent/kubeserve:v1` and then verify the deployment was successful. Once your application is running and serving clients, you will perform a rolling update, making sure the rollout is successful and there is no downtime for your end users. You will make use of the `kubectl` command-line tool to perform all operations, in combination with the `set image` command to perform the rolling update to the new version. When you have verified the end users are now using version 2 of the app versus version 1, you may consider this hands-on lab complete.
+
+
+### Create and Roll Out Version 1 of the Application, and Verify a Successful Deployment
+- Create and open the `kubeserve-deployment.yaml` to create your deployment:
+
+    `vim kubeserve-deployment.yaml`
+
+- Insert the following YAML into the file:
+
+    > Note: When copying and pasting code into Vim from the lab guide, first enter `:set paste` (and then i to enter insert mode) to avoid adding unnecessary spaces and hashes.
+
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+    name: kubeserve
+    spec:
+    replicas: 3
+    selector:
+        matchLabels:
+        app: kubeserve
+    template:
+        metadata:
+        name: kubeserve
+        labels:
+            app: kubeserve
+        spec:
+        containers:
+        - image: linuxacademycontent/kubeserve:v1
+            name: app
+    ```
+
+- Create the deployment:
+
+    `kubectl apply -f kubeserve-deployment.yaml`
+
+- Verify the deployment was successful:
+
+    `kubectl rollout status deployments kubeserve`
+
+    You should see that the deployment was successfully rolled out.
+
+- Verify the app is at the correct version:
+
+    `kubectl describe deployment kubeserve`
+
+    You should see that the image is version 1.
