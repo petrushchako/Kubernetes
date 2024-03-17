@@ -944,3 +944,22 @@ In this hands-on lab, you will be presented with a 3-node cluster. You will need
     `kubectl describe deployment kubeserve`
 
     You should see that the image is version 1.
+
+<br>
+
+### Scale Up the Application to Create High Availability
+- Check for pods:
+
+    `kubectl get pods`
+
+    You should see 3 pods.
+
+- Scale up your application to 5 replicas:
+
+    `kubectl scale deployment kubeserve --replicas=5`
+
+- Verify the additional replicas have been created:
+
+    `kubectl get pods`
+    
+    You should now see 5 pods.
