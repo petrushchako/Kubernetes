@@ -963,3 +963,20 @@ In this hands-on lab, you will be presented with a 3-node cluster. You will need
     `kubectl get pods`
     
     You should now see 5 pods.
+
+<br>
+
+### Create a Service So Users Can Access the Application
+- Create a service for your deployment:
+
+    `kubectl expose deployment kubeserve --port 80 --target-port 80 --type NodePort`
+
+- Verify the service is present:
+
+    `kubectl get services`
+
+    **Copy the Cluster-IP of the NodePort service** from this screen. You will need it for the next objective.
+
+<br>
+
+### 
