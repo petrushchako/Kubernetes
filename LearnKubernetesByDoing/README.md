@@ -1044,7 +1044,7 @@ Pods in Kubernetes are ephemeral, which makes the local container filesytem unus
 
 <br>
 
-#### Create a PersistentVolumeClaim.
+### Create a PersistentVolumeClaim.
 
 - Create the file, named redis-pvc.yaml:
 
@@ -1104,3 +1104,24 @@ Pods in Kubernetes are ephemeral, which makes the local container filesytem unus
 - Verify the pod was created:
 
     `kubectl get pods`
+
+
+<br>
+
+### Connect to the container and write some data.
+
+- Connect to the container and run the redis-cli:
+
+    `kubectl exec -it redispod redis-cli`
+
+- Set the key space server:name and value "redis server":
+
+    `SET server:name "redis server"`
+
+- Run the GET command to verify the value was set:
+
+    `GET server:name`
+
+- Exit the redis-cli:
+
+    `QUIT`
