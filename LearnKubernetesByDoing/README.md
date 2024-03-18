@@ -1028,15 +1028,15 @@ Pods in Kubernetes are ephemeral, which makes the local container filesytem unus
     apiVersion: v1
     kind: PersistentVolume
     metadata:
-        name: redis-pv
+      name: redis-pv
     spec:
-        storageClassName: ""
-        capacity:
-            storage: 1Gi
-        accessModes:
-            - ReadWriteOnce
-        hostPath:
-            path: "/mnt/data"
+      storageClassName: ""
+      capacity:
+        storage: 1Gi
+      accessModes:
+        - ReadWriteOnce
+      hostPath:
+        path: "/mnt/data"
     ```
 - Then, create the PersistentVolume:
 
@@ -1044,4 +1044,26 @@ Pods in Kubernetes are ephemeral, which makes the local container filesytem unus
 
 <br>
 
-#### 
+#### Create a PersistentVolumeClaim.
+
+- Create the file, named redis-pvc.yaml:
+
+    `vim redis-pvc.yaml`
+
+- Use the following YAML spec for the PersistentVolumeClaim:
+    ```yaml
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: redisdb-pvc
+    spec:
+      storageClassName: ""
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi
+    ```
+- Then, create the PersistentVolumeClaim:
+
+    `kubectl apply -f redis-pvc.yaml`
