@@ -1141,3 +1141,19 @@ Pods in Kubernetes are ephemeral, which makes the local container filesytem unus
 - Create a new pod named redispod2:
 
     `kubectl apply -f redispod.yaml`
+
+<br>
+
+### Verify the volume has persistent data.
+
+- Connect to the container and run redis-cli:
+
+    `kubectl exec -it redispod2 redis-cli`
+
+- Run the GET command to retrieve the data written previously:
+
+    `GET server:name`
+
+- Exit the redis-cli:
+
+    `QUIT`
