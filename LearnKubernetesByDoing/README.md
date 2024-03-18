@@ -1067,3 +1067,40 @@ Pods in Kubernetes are ephemeral, which makes the local container filesytem unus
 - Then, create the PersistentVolumeClaim:
 
     `kubectl apply -f redis-pvc.yaml`
+
+<br>
+
+### Create a pod from the redispod image, with a mounted volume to mount path /data.
+
+- Create the file, named redispod.yaml:
+
+    `vim redispod.yaml`
+
+- Use the following YAML spec for the pod:
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: redispod
+    spec:
+      containers:
+      - image: redis
+        name: redisdb
+        volumeMounts:
+          - name: redis-data
+        mountPath: /data
+        ports:
+          - containerPort: 6379
+        protocol: TCP
+      volumes:
+        - name: redis-data
+          persistentVolumeClaim:
+          claimName: redisdb-pvc
+    ```
+- Then, create the pod:
+
+    `kubectl apply -f redispod.yaml`
+
+- Verify the pod was created:
+
+    `kubectl get pods`
