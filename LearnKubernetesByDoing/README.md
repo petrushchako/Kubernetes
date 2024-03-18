@@ -1017,3 +1017,31 @@ In this hands-on lab, you will be presented with a 3-node cluster. You will need
 #### ABOUT THIS LAB
 Pods in Kubernetes are ephemeral, which makes the local container filesytem unusable, as you can never ensure the pod will remain. To decouple your storage from your pods, you will be creating a persistent volume to mount for use by your pods. You will be deploying a redis image. You will first create the persistent volume, then create the pod YAML for deploying the pod to mount the volume. You will then delete the pod and create a new pod, which will access that same volume.
 
+### Create a PersistentVolume.
+
+- Create the file, named redis-pv.yaml:
+
+    `vim redis-pv.yaml`
+
+- Use the following YAML spec for the PersistentVolume:
+    ```yaml
+    apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+        name: redis-pv
+    spec:
+        storageClassName: ""
+        capacity:
+            storage: 1Gi
+        accessModes:
+            - ReadWriteOnce
+        hostPath:
+            path: "/mnt/data"
+    ```
+- Then, create the PersistentVolume:
+
+    `kubectl apply -f redis-pv.yaml`
+
+<br>
+
+#### 
