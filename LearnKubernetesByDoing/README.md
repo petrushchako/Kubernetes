@@ -1125,3 +1125,19 @@ Pods in Kubernetes are ephemeral, which makes the local container filesytem unus
 - Exit the redis-cli:
 
     `QUIT`
+
+<br>
+
+### Delete redispod and create a new pod named redispod2.
+
+- Delete the existing redispod:
+
+    `kubectl delete pod redispod`
+
+- Open the file redispod.yaml and change line 4 from name: redispod to:
+
+    `name: redispod2`
+
+- Create a new pod named redispod2:
+
+    `kubectl apply -f redispod.yaml`
