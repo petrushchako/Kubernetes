@@ -1157,3 +1157,13 @@ Pods in Kubernetes are ephemeral, which makes the local container filesytem unus
 - Exit the redis-cli:
 
     `QUIT`
+
+
+
+<br><br><br>
+
+## Creating a ClusterRole to Access a PV in Kubernetes
+
+#### ABOUT THIS LAB
+In this hands-on lab, you will be tasked with accessing a persistent volume from a pod in order to view the available volumes inside the Kubernetes cluster. By default, pods cannot access volumes directly, so you will also need to create a cluster role to provide authorization to the pod. Additionally, you cannot access the API server directly without authentication, so you will need to run kubectl in proxy mode to retrieve information about the volumes.
+
