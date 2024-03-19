@@ -1192,10 +1192,12 @@ In this hands-on lab, you will be tasked with accessing a persistent volume from
 
 <br>
 
-### View the Persistent Volume
-
 - View the Persistent Volume within the cluster:
 
     `kubectl get pv`
+
+- Create the ClusterRole:
+
+    `kubectl create clusterrole pv-reader --verb=get,list --resource=persistentvolumes`
 
 - 
