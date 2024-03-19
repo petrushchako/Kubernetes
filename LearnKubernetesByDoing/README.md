@@ -1192,6 +1192,8 @@ In this hands-on lab, you will be tasked with accessing a persistent volume from
 
 <br>
 
+### Configure cluster role
+
 - View the Persistent Volume within the cluster:
 
     `kubectl get pv`
@@ -1203,3 +1205,33 @@ In this hands-on lab, you will be tasked with accessing a persistent volume from
 - Create the ClusterRoleBinding:
 
     `kubectl create clusterrolebinding pv-test --clusterrole=pv-reader --serviceaccount=web:default`
+
+<br>
+
+### Create a Pod to Access the PV
+
+- Create the `curlpod.yaml` file:
+
+    `vim curlpod.yaml`
+
+- Add the following YAML to create a pod that will proxy the connection and allow you to curl the address:
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: curlpod
+      namespace: web
+    spec:
+      containers:
+        - image: curlimages/curl
+          command: ["sleep", "9999999"]
+          name: main
+        - image: linuxacademycontent/kubectl-proxy
+          name: proxy
+      restartPolicy: Always
+    ```
+- Create the pod:
+
+    `kubectl apply -f curlpod.yaml`
+
+    
