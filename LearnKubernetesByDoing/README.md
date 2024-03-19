@@ -1200,4 +1200,6 @@ In this hands-on lab, you will be tasked with accessing a persistent volume from
 
     `kubectl create clusterrole pv-reader --verb=get,list --resource=persistentvolumes`
 
-- 
+- Create the ClusterRoleBinding:
+
+    `kubectl create clusterrolebinding pv-test --clusterrole=pv-reader --serviceaccount=web:default`
