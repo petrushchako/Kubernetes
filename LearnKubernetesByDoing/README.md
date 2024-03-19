@@ -1200,9 +1200,13 @@ In this hands-on lab, you will be tasked with accessing a persistent volume from
 
 - Create the ClusterRole:
 
+    > Define Necessary Permissions in the ClusterRole: Make sure that the ClusterRole you've created grants the necessary permissions that your Pods require. This involves specifying the appropriate verbs (e.g., get, list, create, delete) for the relevant Kubernetes API resources (e.g., pods, services, deployments) within the rules section of the ClusterRole manifest.
+
     `kubectl create clusterrole pv-reader --verb=get,list --resource=persistentvolumes`
 
 - Create the ClusterRoleBinding:
+
+    > Bind the ClusterRole to ServiceAccounts or Users: Use a ClusterRoleBinding or RoleBinding to bind the ClusterRole to the appropriate ServiceAccounts or Users. If you've created a ClusterRole and a ClusterRoleBinding, ensure that the subjects section of the ClusterRoleBinding includes the ServiceAccounts or Users that your Pods will be running as.
 
     `kubectl create clusterrolebinding pv-test --clusterrole=pv-reader --serviceaccount=web:default`
 
@@ -1234,4 +1238,15 @@ In this hands-on lab, you will be tasked with accessing a persistent volume from
 
     `kubectl apply -f curlpod.yaml`
 
-    
+
+### Request Access to the PV from the Pod
+
+- Open a new shell to the pod:
+
+    `kubectl exec -it curlpod -n web -- sh`
+
+    If it doesn't work immediately, wait a minute or so and then run the command again.
+
+- Curl the PV resource:
+
+    `curl localhost:8001/api/v1/persistentvolumes`
