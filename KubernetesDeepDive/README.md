@@ -1,5 +1,9 @@
 # Kubernetes Deep Dive
 
+### Instructor<br>**Nigel Poulton**
+
+<br>
+
 ### Course Outline
 
 ### Kubernetes Big Picture
@@ -69,6 +73,26 @@
 - Other Kubernetes Stuff
 
 <br><br>
+
+## Installation
+### Private PC
+- Minicube
+- Docker for Desktop
+
+### Cloud providers
+- AKS (hosted)
+- GKS (hosted)
+- EKS (hosted)
+- Kops
+
+### On-prem
+- Kubeadm
+
+### Web practice 
+- Play With Kubernetes (PWK)
+  - http://play-with-k8s.com
+  - 4 hours playground
+  
 
 # Notes
 
