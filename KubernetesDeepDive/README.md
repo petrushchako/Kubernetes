@@ -141,6 +141,16 @@
 
 - Kubernetes Networking Basics
 
+  Core Rules:
+  - All Nodes can talk
+  - All Pods can talk (No NAT) with the use of `CNI plugin`
+  - Every Pod gets its own IP
+
+  How it works:
+  Nodes get allocated a IP range to operate with (i.e Node1: 10.0.1.0/24, Node2: 10.0.2.0/24)
+  Whenever the deployment is triggered,, K8s will allocate pods to a Node, and an IP address from the range tha belongs to the Node will be allocated to the Pod (i.e Node1-Pod1: 10.0.1.1, Node2-Pod2: 10.0.2.19)
+
+  The Ip allocate to the node is available to all other Nodes and Pods for communication. Pod is also selfaware of its own IP address. 
 
 - Kubernetes Service Fundamentals
 
