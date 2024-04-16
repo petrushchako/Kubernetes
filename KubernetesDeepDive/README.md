@@ -146,7 +146,8 @@
   - All Pods can talk (No NAT) with the use of `CNI plugin`
   - Every Pod gets its own IP
 
-  How it works:
+  **How it works:**
+
   Nodes get allocated a IP range to operate with (i.e Node1: 10.0.1.0/24, Node2: 10.0.2.0/24)
   Whenever the deployment is triggered,, K8s will allocate pods to a Node, and an IP address from the range tha belongs to the Node will be allocated to the Pod (i.e Node1-Pod1: 10.0.1.1, Node2-Pod2: 10.0.2.19)
 
@@ -154,6 +155,21 @@
 
 - Kubernetes Service Fundamentals
 
+  Services are stable abstraction point for pods. We create service and logically put it in front of the pods. So all other services instead of communication with Pods (whos IP regularlly change due to Pods crashin, scaling up/down, etc).
+
+  **How it works:**
+
+  Frontend:
+
+  - Every service gets a name (i.e. `search-api`) and IP (i.e. `172.11.240.5`). Those two values are stable, and remain reserved for the service. The name and IP get registered with cluster's native DNS. Every pod knows how to use the core DNS and resolve the name to the address (Note: you might have to enable DNS).
+
+  Backend:
+  - On the backend (communication service to pods) it reolves the traffic destination by **lables**. 
+  ![](img/services-1.png)
+
+  - When you create a service for the lable selector, K8s also creates another object on the cluster called `Endpoint Object`. It contains the list of Pod IPs and ports that match the service lable selector. 
+  The Endpoint Object always has the same name as the service object it is associated with. And it maintains the list of all pods service can send requests to.
+  ![](img/services-2.png)
 
 - Service Types
 
