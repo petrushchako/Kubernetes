@@ -278,7 +278,8 @@
     - Native Layer-4 load balancer
     - Supports more algorithms
 
-
+    - Note:
+      Kube-proxy in IPVS mode does create dummy interfaces on the Service Network (usually called kube-ipvs®). Kube-proxy in IPTABLES mode does not.
 
 - Demo
 
