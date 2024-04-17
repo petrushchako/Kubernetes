@@ -215,13 +215,69 @@
     This service type automatically creates an external load balancer in a cloud environment (like AWS, GCP, Azure) and assigns a unique external IP to the service. It is suitable for scenarios where you want to expose your service to the internet.
 
     Extrnal load balancer is used as proxy to forward traffic to your K8s cluster, usually via NodePort, but K8s configured this automatically. 
-    
+
 
   - **ExternalName**
   
     This type of service is used to give an external name (DNS name) to a service, rather than exposing it internally within the cluster. It redirects requests to the external name to a CNAME record.
 
 - The Service Network
+
+  When you create a service it gets static IP. This static IP is allocated from **service network** range:
+
+  ![](img/service-network-1.png)
+
+  However, there a subtle differences between how usual network and k8s network operates. 
+
+  Each Node in k8s cluster has a `kube-proxy`.
+
+  Kube-proxy is a crucial component of a Kubernetes cluster responsible for managing network connectivity to Kubernetes services. It runs on each node in the cluster and maintains network rules to handle forwarding of traffic to the appropriate pods or services. Essentially, kube-proxy enables communication between different parts of your Kubernetes cluster.
+
+    Here's what kube-proxy does:
+
+    - **Service Proxy**
+     
+      Kube-proxy maintains network rules on each node to support service abstraction. It watches the Kubernetes API for changes to services and endpoints and updates the rules accordingly. This ensures that traffic to a service's ClusterIP, NodePort, or LoadBalancer is properly forwarded to the correct destination pods.
+    
+    - **Load Balancing**
+    
+      For services that require load balancing, kube-proxy distributes incoming requests across multiple pods that provide the service. This helps distribute the workload evenly and ensures high availability and scalability of applications.
+
+    - **NodePort Handling**
+    
+      If a service is exposed using the NodePort type, kube-proxy ensures that each node in the cluster forwards traffic on the specified port to the appropriate pods, even if those pods are on different nodes.
+
+    - **Cluster Networking**
+    
+      Kube-proxy plays a role in enabling communication between pods across nodes in the cluster by managing network routing and IP address assignment.
+
+    <br><br>When one pod wants to communicate with another pod within the same Kubernetes cluster:
+
+    - It typically sends the request to the IP address associated with the service.
+
+    - The request is intercepted by kube-proxy, which manages service abstraction and routing.
+
+    - Kube-proxy forwards the request to the appropriate pod based on the service's endpoint configuration.
+
+    - DNS resolution might be involved, but it's handled internally by Kubernetes rather than relying directly on the node's DNS.
+
+      ![](img/service-network-2.png)
+
+
+<br><br>
+
+
+  **Kube-proxy modes**
+  - **Kube-proxy IPTABLES Mode**
+    - Default since Kubernetes 1.2
+    - Doesn't scale well
+    - Not really designed for load balancing
+  - **Kube-proxy IPVS Mode**
+    - Stable (GA) since Kubernetes 1.11
+    - Uses Linux kernel IP Virtual Server
+    - Native Layer-4 load balancer
+    - Supports more algorithms
+
 
 
 - Demo
