@@ -173,6 +173,53 @@
 
 - Service Types
 
+  There are several types of services in Kubernetes:
+
+  - **ClusterIP (default)** 
+  
+    This is the default type of service. It exposes the Service on a cluster-internal IP. This means the service is only reachable from within the cluster.
+
+    - Gets own IP
+    - Only accessible from within cluster
+
+  - **NodePort**
+  
+    This type of service exposes the Service on each Node's IP at a static port. A client can connect to the NodePort service from outside the cluster by using the Node's IP address and the static port number.
+
+    - Gets cluster-wide port
+    - Also accessible from outside of cluster
+    - Default range for port selection 30000-32767. You can change this range with `--service-node-port-range` or hadcode desired port number in service description. 
+    - Can be of TCP (default) or UDP
+  
+    ```yaml
+    apiVersion: v1
+      kind: Service
+      metadata:
+        name: wordpress
+        labels:
+          app: wordpress
+      spec:
+        type: NodePort
+        ports:
+          - port: 80 # Port that the Pods are listening on
+            nodePort: 30080 # Cluster-wide port that the service listens on
+        selector:
+          app: wordpress
+    ```
+
+    ![](img/service-types-1.png)
+    To access this service you would use combination of node IP (i.e. `192.168.50.1`) and port number (i.e. NodePort `3126`) : `192.168.50.1:3126`
+
+  - **LoadBalancer**
+  
+    This service type automatically creates an external load balancer in a cloud environment (like AWS, GCP, Azure) and assigns a unique external IP to the service. It is suitable for scenarios where you want to expose your service to the internet.
+
+    Extrnal load balancer is used as proxy to forward traffic to your K8s cluster, usually via NodePort, but K8s configured this automatically. 
+    
+
+  - **ExternalName**
+  
+    This type of service is used to give an external name (DNS name) to a service, rather than exposing it internally within the cluster. It redirects requests to the external name to a CNAME record.
 
 - The Service Network
 
