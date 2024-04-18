@@ -357,11 +357,28 @@
   1. You configure `spec.volumes` with reference to claim created. 
   2. In `spec.containers.image` you create a `volumeMount` instruction that points to `spec.volumes` configuration.
 
-  ![](img/storage-5.png)
+      ![](img/storage-5.png)
 
-- Storage Classes
+<br>
+
+- **Storage Classes**
 
   Storage classes enable dynamic provisioning of volumes.
+
+  When you have a Storage Class defined in Kubernetes, you typically create a PersistentVolumeClaim (PVC) that references that Storage Class instead of creating PersistentVolumes (PVs) directly.
+
+  ![](img/storage-6.png)
+
+  Here's the typical workflow:
+
+  ![](img/storage-7.png)
+
+  1. **Define a Storage Class**<br>The cluster administrator defines one or more Storage Classes, each representing a set of storage provisioning properties, such as storage type, disk speed, access mode, etc. This is usually done once and can be tailored to different storage requirements.
+  2. **Create a PersistentVolumeClaim (PVC)**<br>When an application needs persistent storage, the user or developer creates a PersistentVolumeClaim (PVC) and specifies the desired storage class in the PVC specification. The PVC describes the storage requirements (e.g., size, access mode) but doesn't specify a particular volume.
+  3. **Dynamic Provisioning**<br>When the PVC is created, Kubernetes checks the defined Storage Class and dynamically provisions a suitable PersistentVolume (PV) based on the class's parameters if no available PV matches the claim. If a suitable PV already exists, it binds the claim to that PV.
+  3. **Binding PVC to PV**<br>If dynamic provisioning occurs, Kubernetes binds the PVC to the dynamically provisioned PV. If a suitable PV already existed, it's simply bound to the PVC.
+
+  By following this workflow, users can request storage resources using PVCs without needing to know the specifics of the underlying storage infrastructure. Kubernetes handles the dynamic provisioning and binding process, abstracting away the complexities of storage management. This approach makes storage management more flexible, scalable, and automated.
 
 - Demo
 
