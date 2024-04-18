@@ -309,9 +309,59 @@
 
 - Persistent Volumes and Persistent Volume Claims
 
+  How it works:
+  1. You have the cloud infrastructure storage (standard or SSD) that plugs into K8s cluster via CSI (Google GCEPersistentDisk plugin). 
+  2. You then create a Persistent Volume (i.e. Size: 30GB, IOPS:60)
+    ![](img/storage-4.png)
+  3. Persistent Volume Claim (PVC) creates permission to consume PV.
+  ![](img/storage-2.png)
+
+  **Access Modes:**
+  - **RWO (ReadWriteOnce)**
+
+    Can be mounted as read-write by only one pod in the cluster.
+
+  - **RWM (ReadWriteMany)**
+
+    Can be mounted as read-write by many pod in the cluster.
+
+  - **ROM (ReadOnlyMany)**
+
+    Allow mutiple pods to read only.
+
+  >**Note**
+  > Not all volumes support all modes
+  > A PV can only have one active PVC/AccessMode
+
+  **Reclaim Policy:**
+  
+    This is what a claster does when a claim on the volume is releases:
+
+  - Delete
+
+    K8s will delete claim once it is releases. If supported, it will also delte it on the storage backend as well.
+
+  - Retain (default)
+
+    Keeps the volume and it's contents. If you would like to delete it, it is then a manual operation. 
+
+  Requirements for successful configuration:
+
+  - Areas highlighted in yellow have to match
+  ![](img/storage-3.png)
+  - The claim can be for less then a cpacity of PV, howver if you claim more then PV allows it will not bind. 
+
+<br>
+
+  **How this comes together in Pod configuration:**
+  1. You configure `spec.volumes` with reference to claim created. 
+  2. In `spec.containers.image` you create a `volumeMount` instruction that points to `spec.volumes` configuration.
+
+  ![](img/storage-5.png)
 
 - Storage Classes
 
+  Storage classes enable dynamic provisioning of volumes.
 
 - Demo
 
