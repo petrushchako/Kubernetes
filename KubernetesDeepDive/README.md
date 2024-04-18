@@ -281,23 +281,31 @@
     - Note:
       Kube-proxy in IPVS mode does create dummy interfaces on the Service Network (usually called kube-ipvs®). Kube-proxy in IPTABLES mode does not.
 
-- Demo
-
-
-- Section Recap
-
-
 
 
 ## Kubernetes Storage
-- Section Intro
-
 
 - Kubernetes Storage Big Picture
 
+  **Kubernetes volumes** are all about decoupling storage from Pods. Without PVs all your data lives and dies with pod (crash, scaling up/down). 
+
+  Storage in K8s is refered to as `Volumes`, but also known as LUNs, devices, shares, mounts, spaces, etc.
+
+  Fundamental storage requirements
+  - Speed
+  - Replication
+  - Resiliency
+  - etc
+
+  Storage in K8s is implemented via combination of third-party infrastructure(EBS, S3,etc) Container Storage Interface (CSI) and PV Subsystem (PV, PVC SC):
+
+  ![](img/storage-1.png)
 
 - The Container Storage Interface
 
+  Previously the link between extrernal storage and PV Subsystem was a part of K8s core.
+
+  CSI replaced this approach and is an open-standard implementation (https://github.com/container-storage-interface/spec). 
 
 - Persistent Volumes and Persistent Volume Claims
 
