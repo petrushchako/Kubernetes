@@ -474,7 +474,7 @@
             app: web
         spec:
           containers:
-          - image: nigelpoulton/acg-web:0.1
+          - image: <your-dockerhub-username>/<your-image-name>:<tag>
             name: web-ctr
             ports:
             - containerPort: 8080
@@ -506,14 +506,21 @@
       spec:
         type: NodePort
         ports:
-          - port: 8080
-            nodePort: 31000
+          - port: 8080 #Forward traffic to pod port 8080
+            nodePort: 31000 #Listen to traffic on following port
         selector:
           app: web
       ```
 
+  5. Deploy objects to K8s
+    ```yaml
+    kubectl apply -f ./web-deploy.yml
+    kubectl get deploy --watch
 
-
+    kubectl apply -f ./<Service_descriptor_name>
+    ```
+   > **Test**<br>
+   > Test deployment by openning `localhost:31000` in the browser
 
 
 
