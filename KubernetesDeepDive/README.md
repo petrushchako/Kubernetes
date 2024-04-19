@@ -96,48 +96,8 @@
 
 # Notes
 
-## Kubernetes Big Picture
-- Section Overview
-
-
-- Kubernetes Primer
-
-
-- The Kubernetes API
-
-
-- Kubernetes Objects
-
-
-- Quick ways to get your own cluster
-
-
-
-
-## Application Architecture
-- Section Overview
-
-
-- Theory
-
-
-- Look at the sample app
-
-
-- Section Recap
-
-
-
 
 ## Kubernetes Networking
-- Section Overview
-
-
-- Common Networking Requirements
-
-
-- Sample App Requirements
-
 
 - Kubernetes Networking Basics
 
@@ -379,12 +339,6 @@
   3. **Binding PVC to PV**<br>If dynamic provisioning occurs, Kubernetes binds the PVC to the dynamically provisioned PV. If a suitable PV already existed, it's simply bound to the PVC.
 
   By following this workflow, users can request storage resources using PVCs without needing to know the specifics of the underlying storage infrastructure. Kubernetes handles the dynamic provisioning and binding process, abstracting away the complexities of storage management. This approach makes storage management more flexible, scalable, and automated.
-
-- Demo
-
-
-- Section Recap
-
 
 
 
