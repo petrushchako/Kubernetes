@@ -355,101 +355,166 @@
 
   1. Prep application files
     - Create following file structure:
-    ```
-    code-k8s
-    ├── views
-    │   └── home.pug
-    ├── Dockerfile
-    ├── app.js
-    ├── package.json
-    ├── web-deploy.yml
-    ├── web-lb.yml
-    └── web-nodeport.yml
-    ```
+      ```
+      code-k8s
+      ├── views
+      │   └── home.pug
+      ├── Dockerfile
+      ├── app.js
+      ├── package.json
+      ├── web-deploy.yml
+      ├── web-lb.yml
+      └── web-nodeport.yml
+      ```
     - `view/home.pug`
-    ```pug
-    html
-      head
-        title='ACG loves K8S'
-        link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
-      body
-        div.container
-          div.jumbotron
-            h1 A Cloud Guru loves Kubernetes!!!
-            p
-            p 
-              a.btn.btn-primary(href="https://www.amazon.com/Kubernetes-Book-Nigel-Poulton/dp/1521823634/ref=sr_1_3?ie=UTF8&qid=1531240306&sr=8-3&keywords=nigel+poulton") The Kubernetes Book
-            p
-    ```
+      ```pug
+      html
+        head
+          title='ACG loves K8S'
+          link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
+        body
+          div.container
+            div.jumbotron
+              h1 A Cloud Guru loves Kubernetes!!!
+              p
+              p 
+                a.btn.btn-primary(href="https://www.amazon.com/Kubernetes-Book-Nigel-Poulton/dp/1521823634/ref=sr_1_3?ie=UTF8&qid=1531240306&sr=8-3&keywords=nigel+poulton") The Kubernetes Book
+              p
+      ```
 
     - `app.js`
-    ```js
-    // Simple node.js web app for demonstrating containerizing apps
-    // For quick demo purposes only (not properly maintained)
-    'use strict';
+      ```js
+      // Simple node.js web app for demonstrating containerizing apps
+      // For quick demo purposes only (not properly maintained)
+      'use strict';
 
-    var express = require('express'),
-        app = express();
+      var express = require('express'),
+          app = express();
 
-    app.set('views', 'views');
-    app.set('view engine', 'pug');
+      app.set('views', 'views');
+      app.set('view engine', 'pug');
 
-    app.get('/', function(req, res) {
-        res.render('home.pug', {
+      app.get('/', function(req, res) {
+          res.render('home.pug', {
+        });
       });
-    });
 
-    app.listen(8080);
-    module.exports.getApp = app;
-    ```
-    - `package.json`
-    ```json
-    {
-      "name": "container-web-test",
-      "private": true,
-      "version": "0.0.1",
-      "description": "Demo app for Web container demonstrations",
-      "main": "app.js",
-      "author": "Nigel Poulton <nigelpoulton@hotmail.com>",
-      "license": "Will be full of vulnerabilities!",
-      "dependencies": {
-        "express": "4.16.3",
-        "pug": "2.0.3"
+      app.listen(8080);
+      module.exports.getApp = app;
+      ```
+      - `package.json`
+      ```json
+      {
+        "name": "container-web-test",
+        "private": true,
+        "version": "0.0.1",
+        "description": "Demo app for Web container demonstrations",
+        "main": "app.js",
+        "author": "Nigel Poulton <nigelpoulton@hotmail.com>",
+        "license": "Will be full of vulnerabilities!",
+        "dependencies": {
+          "express": "4.16.3",
+          "pug": "2.0.3"
+        }
       }
-    }
-    ```
+      ```
 
   2. Prepare containerization descriptor
     - `Dockerfile`
-    ```yml
-    FROM centos:centos7
+      ```yml
+      FROM centos:centos7
 
-    LABEL MAINTAINER=nigelpoulton@hotmail.com
+      LABEL MAINTAINER=nigelpoulton@hotmail.com
 
-    # Install Node etc...
-    RUN yum -y update; yum clean all
-    RUN yum -y install epel-release; yum clean all
-    RUN yum -y install nodejs npm; yum clean all
+      # Install Node etc...
+      RUN yum -y update; yum clean all
+      RUN yum -y install epel-release; yum clean all
+      RUN yum -y install nodejs npm; yum clean all
 
-    # Copy source code to /src in container
-    COPY . /src
+      # Copy source code to /src in container
+      COPY . /src
 
-    # Install app and dependencies into /src in container
-    RUN cd /src; npm install
+      # Install app and dependencies into /src in container
+      RUN cd /src; npm install
 
-    # Document the port the app listens on
-    EXPOSE 8080
+      # Document the port the app listens on
+      EXPOSE 8080
 
-    # Run this command (starts the app) when the container starts
-    CMD cd /src && node ./app.js
+      # Run this command (starts the app) when the container starts
+      CMD cd /src && node ./app.js
+      ```
+
+  3. **Containerize application**
+      ```yaml
+      docker build -t <your-dockerhub-username>/<your-image-name>:<tag> .
+      docker login
+      docker push <your-dockerhub-username>/<your-image-name>:<tag>
+      ```
+
+  4. Prepade K8s descriptors
+  - Deployment `web-deploy.yml`
+
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: simple-web
+      labels:
+        customer: acg
+    spec:
+      selector:
+        matchLabels:
+          app: web
+      replicas: 3
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: web
+        spec:
+          containers:
+          - image: nigelpoulton/acg-web:0.1
+            name: web-ctr
+            ports:
+            - containerPort: 8080
     ```
+    - LoadBalancer service `web-lb.yml`
+      ```yaml
+      apiVersion: v1
+      kind: Service
+      metadata:
+        name: web-svc
+        labels:
+          app: web
+      spec:
+        type: LoadBalancer
+        ports:
+        - port: 80
+          targetPort: 8080
+        selector:
+          app: web
+      ```
+    - NodePort service `web-nodeport.yml`
+      ```yaml
+      apiVersion: v1
+      kind: Service
+      metadata:
+        name: web-nodeport
+        labels:
+          app: web
+      spec:
+        type: NodePort
+        ports:
+          - port: 8080
+            nodePort: 31000
+        selector:
+          app: web
+      ```
 
-  3. Containerize application
-  ```sh
-  docker build -t <your-dockerhub-username>/<your-image-name>:<tag> .
-  docker login
-  docker push <your-dockerhub-username>/<your-image-name>:<tag>
-  ```
+
+
+
 
 
 - Section Recap
