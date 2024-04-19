@@ -343,13 +343,113 @@
 
 
 ## From Code to Kubernetes
-- Section Intro
-
 
 - Big Picture
+  ![](img/app-code-1.png)
+  From the high level, code to K8s running service follow involes following steps:
+  - A source code (application)
+  - Containerizing application (i.e. Docker Image)
+  - Creating K8s object to push container along side with additional services (based on requirements) to K8s cluster.
 
+- **Demo**
 
-- Demo
+  1. Prep application files
+    - Create following file structure:
+    ```
+    code-k8s
+    ├── views
+    │   └── home.pug
+    ├── Dockerfile
+    ├── app.js
+    ├── package.json
+    ├── web-deploy.yml
+    ├── web-lb.yml
+    └── web-nodeport.yml
+    ```
+    - `view/home.pug`
+    ```pug
+    html
+      head
+        title='ACG loves K8S'
+        link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
+      body
+        div.container
+          div.jumbotron
+            h1 A Cloud Guru loves Kubernetes!!!
+            p
+            p 
+              a.btn.btn-primary(href="https://www.amazon.com/Kubernetes-Book-Nigel-Poulton/dp/1521823634/ref=sr_1_3?ie=UTF8&qid=1531240306&sr=8-3&keywords=nigel+poulton") The Kubernetes Book
+            p
+    ```
+
+    - `app.js`
+    ```js
+    // Simple node.js web app for demonstrating containerizing apps
+    // For quick demo purposes only (not properly maintained)
+    'use strict';
+
+    var express = require('express'),
+        app = express();
+
+    app.set('views', 'views');
+    app.set('view engine', 'pug');
+
+    app.get('/', function(req, res) {
+        res.render('home.pug', {
+      });
+    });
+
+    app.listen(8080);
+    module.exports.getApp = app;
+    ```
+    - `package.json`
+    ```json
+    {
+      "name": "container-web-test",
+      "private": true,
+      "version": "0.0.1",
+      "description": "Demo app for Web container demonstrations",
+      "main": "app.js",
+      "author": "Nigel Poulton <nigelpoulton@hotmail.com>",
+      "license": "Will be full of vulnerabilities!",
+      "dependencies": {
+        "express": "4.16.3",
+        "pug": "2.0.3"
+      }
+    }
+    ```
+
+  2. Prepare containerization descriptor
+    - `Dockerfile`
+    ```yml
+    FROM centos:centos7
+
+    LABEL MAINTAINER=nigelpoulton@hotmail.com
+
+    # Install Node etc...
+    RUN yum -y update; yum clean all
+    RUN yum -y install epel-release; yum clean all
+    RUN yum -y install nodejs npm; yum clean all
+
+    # Copy source code to /src in container
+    COPY . /src
+
+    # Install app and dependencies into /src in container
+    RUN cd /src; npm install
+
+    # Document the port the app listens on
+    EXPOSE 8080
+
+    # Run this command (starts the app) when the container starts
+    CMD cd /src && node ./app.js
+    ```
+
+  3. Containerize application
+  ```sh
+  docker build -t <your-dockerhub-username>/<your-image-name>:<tag> .
+  docker login
+  docker push <your-dockerhub-username>/<your-image-name>:<tag>
+  ```
 
 
 - Section Recap
