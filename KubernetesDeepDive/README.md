@@ -570,7 +570,24 @@ spec:
   maxReplicas: 10
 targetCPUUtilizationPercentage:50
 ```
-
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: acg-deploy
+spec:
+  replicas: 2
+  ...
+    spec:
+    containers:
+    - image: nginx:1.12
+      name: nginx
+      resources:
+        limits:
+          cpu: 1
+        requests:
+          cpu: 0.2
+```
 - Horizontal Pod Autoscaler Demo
 
 
