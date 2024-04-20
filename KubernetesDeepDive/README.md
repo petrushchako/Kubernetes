@@ -553,6 +553,23 @@
 
 - Horizontal Pod Autoscaler Theory
 
+  Sample Horizontal Pod Autoscaler (hpa)
+
+```yaml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: acg-test
+  namespace: acg
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: acg-deploy
+  minReplicas: 1
+  maxReplicas: 10
+targetCPUUtilizationPercentage:50
+```
 
 - Horizontal Pod Autoscaler Demo
 
