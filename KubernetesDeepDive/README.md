@@ -551,7 +551,7 @@
 - Big Picture
 
 
-- Horizontal Pod Autoscaler Theory
+- Horizontal Pod Autoscaler
 
   Sample Horizontal Pod Autoscaler (hpa)
 
@@ -588,23 +588,23 @@ spec:
         requests:
           cpu: 0.2
 ```
-- Horizontal Pod Autoscaler Demo
-
-
 - Cluster Autoscaler Theory
 
-
-- Cluster Autoscaler Demo
-
-
-- Section Recap
-
-
+  Enabled from cloud provider. Navigate to settings and enable cluster autoscaler.
 
 
 ## RBAC and Admission Control
 - Section Intro
 
+  ![](img/security-1.png)
+
+  Note: <br>
+  The authentication and authorization work on secure port, so you will have to disable insecure port (insctruction can be found on Kubernetes website) to prevent from unauthorized login.
+
+  **RBAC**
+
+  - Has been enabled in v1.6 
+  - Deny-by-default, so you will have to configure it, since once you enable it, it will lock everything down.
 
 - Big Picture
 
