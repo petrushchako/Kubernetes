@@ -149,189 +149,193 @@
   - `Demo`: Working with Parallel Jobs and Scheduling Tasks with CronJobs
   - Introducing StatefulSets
   - Module Reivew and Thank You
-
-- Course Overview
-- Introduction, Course and Module Overview
-- Persistent Storage in Containers and Kubernetes
-- Volumes, Persistent Volumes, and Persistent Volume Claims
-- Controlling Persistent Volume Access with Access Modes
-- Static Provisioning and Storage Lifecycle
-- Defining a Persistent Volume
-- Defining a Persistent Volume Claim
-- Lab Environment Overview
-- `Demo`: Storage Server Overview
-- `Demo`: Static Provisioning Persistent Volumes
-- `Demo`: Using a Persistent Volume in a Pod
-- `Demo`: Controlling Persistent Volume Access with Access Modes and Reclaim Policy
-- Storage Classes and Dynamic Provisioning Workflow
-- `Demo`: Dynamic Provisioning Volumes
-- `Demo`: Defining a Custom StorageClass
-- Module Review and What's Next!
-
-- Introduction, Course and Module Overview
-- Why Do We Need Configuration as Data?
-- Configuring Applications in Pods and Environment Variables
-- `Demo`: Passing Configuration into Containers with Environment Variables
-- Creating and Using Secrets
-- `Demo`: Creating and Using Secrets
-- `Demo`: Accessing Secrets in Pods
-- Accessing a Private Container Registry
-- `Demo`: Pulling a Container Image Using a Secret
-- Creating and Using ConfigMaps
-- `Demo`: Creating and Using ConfigMaps
-- Module Review and What's Next!
-
-- Introduction, Course and Module Overview
-- Understanding Scheduling in Kubernetes
-- `Demo`: Scheduling in Action and Scheduling Pods with Requests
-- Controlling Scheduling with Node Selectors
-- Controlling Scheduling with Affinity
-- Controlling Scheduling with Taints and Tolerations
-- `Demo`: Controlling Pod Placement with Affinity
-- `Demo`: Controlling Pod Placement with Taints and Tolerations
-- Node Cordoning, Manual Scheduling, and Configuring Multiple Schedulers
-- `Demo`: Node Cordoning and Manually Scheduling a Pod
-- Module Review and Thank You!
-- Course Overview
-
-- Course Overview
-- Introduction, Course and Module Overview
-- Introducing the Kubernetes Network Model and Cluster Network Topology
-- Pod Networking Communication Patterns and Internals
-- Container Network Interface - CNI
-- Lab Environment Review
-- `Demo`: Investigating Kubernetes Networking - CNI Network Overview
-- `Demo`: Investigating Kubernetes Networking - CNI Overlay Network Routing
-- `Demo`: Investigating Kubernetes Networking - Kubenet Network Overview
-- `Demo`: Investigating Kubernetes Networking - Accessing an AKS Node with SSH
-- `Demo`: Investigating Kubernetes Networking - Kubenet Network Routing and Bridging
-- Cluster DNS and Custom DNS Server and DNS Client Configurations
-- `Demo`: Investigating Cluster DNS
-- `Demo`: Configuring CoreDNS to Use Custom Forwarders and Custom Pod DNS Configuration
-- `Demo`: Examining Cluster DNS Records for Pods and Services
-- `Demo`: Additional Cluster DNS Demos
-- Module Review and What's Next!
-
-- Introduction, Course and Module Overview
-- Understanding Services in Kubernetes
-- Introducing Service Types and Understanding ClusterIP Internals
-- Understanding NodePort Internals
-- Understanding LoadBalancer Internals
-- Defining Deployments and Services
-- `Demo`: Exposing and Accessing applications with Services - ClusterIP
-- `Demo`: Exposing and Accessing applications with Services - NodePort
-- `Demo`: Exposing and Accessing applications with Services - LoadBalancer
-- Service Discovery with DNS and Environment Variables and Other Types of Services
-- `Demo`: Service Discovery with DNS
-- `Demo`: Service Discovery - Environment Variables
-- Module Review and What's Next!
-
-- Introduction, Course and Module Overview
-- Ingress Architecture and Overview
-- Understanding the Ingress Controller and Why Use Ingress Rather Than Load Balancers
-- Exposing a Single Service with Ingress
-- Exposing a Multiple Services with Ingress Using Path Based Routing
-- Using Name Based Virtual Hosts with Ingress
-- Using TLS Certificates with Ingress
-- `Demo`: Deploying the NGINX Ingress Controller
-- `Demo`: Exposing a Single Service with Ingress
-- `Demo`: Exposing a Multiple Services with Ingress Using Path Based Routing
-- `Demo`: Using Name Based Virtual Hosts with Ingress
-- `Demo`: Using TLS Certificates with Ingress
-- Module Review and Thank You!
-- Course Overview
-
-- Introduction, Course and Module Overview
-- Introducing etcd and etcd Backup Concepts
-- Getting etcdctl and Backing up etcd with etcdctl
-- Restoring etcd with etcdctl
-- `Demo`: Investigating etcd Configuration
-- `Demo`: Backing up etcd with etcdctl
-- `Demo`: Restoring etcd to the Same Data Directory
-- `Demo`: Restoring etcd to a New Data Directory
-- Cluster Upgrade Process - Overview
-- Cluster Upgrade Process - Control Plane
-- Cluster Upgrade Process - Worker Nodes
-- `Demo`: Upgrading a Control Plane Node
-- `Demo`: Upgrading a Worker Node
-- Worker Node Maintenance
-- High Availability Cluster Overview and High Availability Cluster Topology - Stacked etc
-- High Availability Cluster Topology - External etcd
-- Module Review and What's Next!
-
-- Introduction, Course and Module Overview
-- Kubernetes Logging Architecture and Logging in Pods and Containers
-- Logging Architecture - Nodes
-- Logging Architecture - Control Plane
-- Understanding and Accessing Cluster Events
-- `Demo`: Kubernetes Logging Architecture - Pods
-- `Demo`: Kubernetes Logging Architecture - Nodes
-- `Demo`: Kubernetes Logging Architecture - Control Plane Pods
-- `Demo`: Working with Kubernetes Events
-- Accessing Object Data with JSONPath
-- Filtering Objects with JSONPath
-- `Demo`: Accessing Object Data with JSONPath
-- `Demo`: Filtering and Sorting Object Data with JSONPath
-- Monitoring in Kubernetes and the Kubernetes Metrics Server
-- `Demo`: Deploying the Kubernetes Metrics Server
-- `Demo`: Using kubect| top to Analyze Resource Consumption on Pods and Nodes
-- Module Review and What's Next!
-
-- Introduction, Course and Module Overview
-- Troubleshooting Tools and Troubleshooting Nodes
-- Managing the kubelet with systemd
-- `Demo`: Troubleshooting Nodes - Stopped kubelet
-- `Demo`: Troubleshooting Nodes - Inaccessible kubelet config.yaml
-- `Demo`: Troubleshooting Nodes - Misconfigured systemd Unit File
-- Troubleshooting - Control Plane
-- `Demo`: Troubleshooting Control Plane - Inaccessible Static Pod Manifests
-- `Demo`: Troubleshooting Control Plane - Misconfigured Static Pod Manifests
-- Troubleshooting Workloads
-- Module Review and Thank You!
-- Course Overview
-
-- Introduction, Course, and Module Overview
-- Securing the API Server and Authentication Plugins
-- Users in Kubernetes
-- Service Accounts and Service Account Credentials
-- Creating a Service Account and Defining a ServiceAccount in a Pod Spec
-- `Demo`: Investigating Certificate Based Authentication
-- `Demo`: Working with Service Accounts
-- `Demo`: Accessing the API Server Inside a Pod
-- `Demo`: Testing API Access with kubectl can-i with Impersonation
-- Authorization Plugins
-- `Demo`: Managing Authorization for Service Accounts
-- Module Review and What's Next!
-
-- Introduction, Course, and Module Overview
-- Certificates and PKI in Kubernetes
-- kubeconfig Files and Certificate-based Authentication
-- How Certificates Are Used in Kubernetes Clusters
-- `Demo`: Investigating PKI Setup on a Control Plane Node
-- `Demo`: Investigating a Control Plane Pod kubeconfig Configuration
-- Creating Certificates with the Certificate API
-- Creating a Certificate Signing Request in openssl
-- Creating a CertificateSigningRequest Object
-- Approving a CertificateSigningRequest and Retrieving a Certificate
-- `Demo`: Creating a Certificate Signing Request for a New User in openssl
-- `Demo`: Creating a CertificateSigningRequest Object, Approving a CertificateSigningRequest a...
-- kubeconfig File Overview and Components
-- kubeconfig File - admin.conf
-- Creating a kubeconfig File Manually
-- `Demo`: Working with kubeconfig Files and Contexts
-- `Demo`: Creating a kubeconfig File for a New User
-- `Demo`: Using a new kubeconfig File with a New User
-- `Demo`: Creating a new Linux User and Configuring Cluster Access
-- Module Review and What's Next!
-
-- Introduction, Course, and Module Overview
-- Role Based Access Controls and API Objects for RBAC
-- Introducing Roles and ClusterRoles
-- Introducing RoleBinding and ClusterRoleBinding
-- What to Use When?
-- Using RBAC in Your Cluster
-- Default ClusterRoles
-- Defining Role, RoleBinding, ClusterRole, and ClusterRoleBinding
-- Creating a Role and a RoleBinding
-- `Demo`: Creating a Role and RoleBinding
-- `Demo`: Testing API Access with kubecti can-i and Impersonation
+- **CHAPTER 13**<br>Configuring and Managing Kubernetes Storage and Scheduling - Course Overview
+  - Course Overview
+- **CHAPTER 14**<br>Configuring and Managing Storage in Kubernetes
+  - Introduction, Course and Module Overview
+  - Persistent Storage in Containers and Kubernetes
+  - Volumes, Persistent Volumes, and Persistent Volume Claims
+  - Controlling Persistent Volume Access with Access Modes
+  - Static Provisioning and Storage Lifecycle
+  - Defining a Persistent Volume
+  - Defining a Persistent Volume Claim
+  - Lab Environment Overview
+  - `Demo`: Storage Server Overview
+  - `Demo`: Static Provisioning Persistent Volumes
+  - `Demo`: Using a Persistent Volume in a Pod
+  - `Demo`: Controlling Persistent Volume Access with Access Modes and Reclaim Policy
+  - Storage Classes and Dynamic Provisioning Workflow
+  - `Demo`: Dynamic Provisioning Volumes
+  - `Demo`: Defining a Custom StorageClass
+  - Module Review and What's Next!
+- **CHAPTER 15**<br>Configuration as Data - Environment Variables, Secrets, and ConfigMaps
+  - Introduction, Course and Module Overview
+  - Why Do We Need Configuration as Data?
+  - Configuring Applications in Pods and Environment Variables
+  - `Demo`: Passing Configuration into Containers with Environment Variables
+  - Creating and Using Secrets
+  - `Demo`: Creating and Using Secrets
+  - `Demo`: Accessing Secrets in Pods
+  - Accessing a Private Container Registry
+  - `Demo`: Pulling a Container Image Using a Secret
+  - Creating and Using ConfigMaps
+  - `Demo`: Creating and Using ConfigMaps
+  - Module Review and What's Next!
+- **CHAPTER 16**<br>Managing and Controlling the Kubernetes Scheduler
+  - Introduction, Course and Module Overview
+  - Understanding Scheduling in Kubernetes
+  - `Demo`: Scheduling in Action and Scheduling Pods with Requests
+  - Controlling Scheduling with Node Selectors
+  - Controlling Scheduling with Affinity
+  - Controlling Scheduling with Taints and Tolerations
+  - `Demo`: Controlling Pod Placement with Affinity
+  - `Demo`: Controlling Pod Placement with Taints and Tolerations
+  - Node Cordoning, Manual Scheduling, and Configuring Multiple Schedulers
+  - `Demo`: Node Cordoning and Manually Scheduling a Pod
+  - Module Review and Thank You!
+- **CHAPTER 17**<br>Configuring and Managing Kubernetes Networking, Services, and Ingress - Course Overview
+  - Course Overview
+- **CHAPTER 18**<br>Kubernetes Networking Fundamentals
+  - Course Overview
+  - Introduction, Course and Module Overview
+  - Introducing the Kubernetes Network Model and Cluster Network Topology
+  - Pod Networking Communication Patterns and Internals
+  - Container Network Interface - CNI
+  - Lab Environment Review
+  - `Demo`: Investigating Kubernetes Networking - CNI Network Overview
+  - `Demo`: Investigating Kubernetes Networking - CNI Overlay Network Routing
+  - `Demo`: Investigating Kubernetes Networking - Kubenet Network Overview
+  - `Demo`: Investigating Kubernetes Networking - Accessing an AKS Node with SSH
+  - `Demo`: Investigating Kubernetes Networking - Kubenet Network Routing and Bridging
+  - Cluster DNS and Custom DNS Server and DNS Client Configurations
+  - `Demo`: Investigating Cluster DNS
+  - `Demo`: Configuring CoreDNS to Use Custom Forwarders and Custom Pod DNS Configuration
+  - `Demo`: Examining Cluster DNS Records for Pods and Services
+  - `Demo`: Additional Cluster DNS Demos
+  - Module Review and What's Next!
+- **CHAPTER 19**<br>Configuring and Managing Application Access with Services
+  - Introduction, Course and Module Overview
+  - Understanding Services in Kubernetes
+  - Introducing Service Types and Understanding ClusterIP Internals
+  - Understanding NodePort Internals
+  - Understanding LoadBalancer Internals
+  - Defining Deployments and Services
+  - `Demo`: Exposing and Accessing applications with Services - ClusterIP
+  - `Demo`: Exposing and Accessing applications with Services - NodePort
+  - `Demo`: Exposing and Accessing applications with Services - LoadBalancer
+  - Service Discovery with DNS and Environment Variables and Other Types of Services
+  - `Demo`: Service Discovery with DNS
+  - `Demo`: Service Discovery - Environment Variables
+  - Module Review and What's Next!
+- **CHAPTER 20**<br>Configuring and Managing Application Access with Ingress
+  - Introduction, Course and Module Overview
+  - Ingress Architecture and Overview
+  - Understanding the Ingress Controller and Why Use Ingress Rather Than Load Balancers
+  - Exposing a Single Service with Ingress
+  - Exposing a Multiple Services with Ingress Using Path Based Routing
+  - Using Name Based Virtual Hosts with Ingress
+  - Using TLS Certificates with Ingress
+  - `Demo`: Deploying the NGINX Ingress Controller
+  - `Demo`: Exposing a Single Service with Ingress
+  - `Demo`: Exposing a Multiple Services with Ingress Using Path Based Routing
+  - `Demo`: Using Name Based Virtual Hosts with Ingress
+  - `Demo`: Using TLS Certificates with Ingress
+  - Module Review and Thank You!
+- **CHAPTER 21**<br>Maintaining, Monitoring and Troubleshooting Kubernetes - Course Overview
+  - Course Overview
+- **CHAPTER 22**<br>Maintaining Kubernetes Clusters
+  - Introduction, Course and Module Overview
+  - Introducing etcd and etcd Backup Concepts
+  - Getting etcdctl and Backing up etcd with etcdctl
+  - Restoring etcd with etcdctl
+  - `Demo`: Investigating etcd Configuration
+  - `Demo`: Backing up etcd with etcdctl
+  - `Demo`: Restoring etcd to the Same Data Directory
+  - `Demo`: Restoring etcd to a New Data Directory
+  - Cluster Upgrade Process - Overview
+  - Cluster Upgrade Process - Control Plane
+  - Cluster Upgrade Process - Worker Nodes
+  - `Demo`: Upgrading a Control Plane Node
+  - `Demo`: Upgrading a Worker Node
+  - Worker Node Maintenance
+  - High Availability Cluster Overview and High Availability Cluster Topology - Stacked etc
+  - High Availability Cluster Topology - External etcd
+  - Module Review and What's Next!
+- **CHAPTER 23**<br>Logging and Monitoring in Kubernetes Clusters
+  - Introduction, Course and Module Overview
+  - Kubernetes Logging Architecture and Logging in Pods and Containers
+  - Logging Architecture - Nodes
+  - Logging Architecture - Control Plane
+  - Understanding and Accessing Cluster Events
+  - `Demo`: Kubernetes Logging Architecture - Pods
+  - `Demo`: Kubernetes Logging Architecture - Nodes
+  - `Demo`: Kubernetes Logging Architecture - Control Plane Pods
+  - `Demo`: Working with Kubernetes Events
+  - Accessing Object Data with JSONPath
+  - Filtering Objects with JSONPath
+  - `Demo`: Accessing Object Data with JSONPath
+  - `Demo`: Filtering and Sorting Object Data with JSONPath
+  - Monitoring in Kubernetes and the Kubernetes Metrics Server
+  - `Demo`: Deploying the Kubernetes Metrics Server
+  - `Demo`: Using kubect| top to Analyze Resource Consumption on Pods and Nodes
+  - Module Review and What's Next!
+- **CHAPTER 24**<br>Troubleshooting Kubernetes Clusters
+  - Introduction, Course and Module Overview
+  - Troubleshooting Tools and Troubleshooting Nodes
+  - Managing the kubelet with systemd
+  - `Demo`: Troubleshooting Nodes - Stopped kubelet
+  - `Demo`: Troubleshooting Nodes - Inaccessible kubelet config.yaml
+  - `Demo`: Troubleshooting Nodes - Misconfigured systemd Unit File
+  - Troubleshooting - Control Plane
+  - `Demo`: Troubleshooting Control Plane - Inaccessible Static Pod Manifests
+  - `Demo`: Troubleshooting Control Plane - Misconfigured Static Pod Manifests
+  - Troubleshooting Workloads
+  - Module Review and Thank You!
+- **CHAPTER 25**<br>Configuring and Managing Kubernetes Security - Course Overview
+  - Course Overview
+- **CHAPTER 26**<br>Kubernetes Security Fundamentals
+  - Introduction, Course, and Module Overview
+  - Securing the API Server and Authentication Plugins
+  - Users in Kubernetes
+  - Service Accounts and Service Account Credentials
+  - Creating a Service Account and Defining a ServiceAccount in a Pod Spec
+  - `Demo`: Investigating Certificate Based Authentication
+  - `Demo`: Working with Service Accounts
+  - `Demo`: Accessing the API Server Inside a Pod
+  - `Demo`: Testing API Access with kubectl can-i with Impersonation
+  - Authorization Plugins
+  - `Demo`: Managing Authorization for Service Accounts
+  - Module Review and What's Next!
+- **CHAPTER 27**<br>Managing Certificates and kubeconfig Files
+  - Introduction, Course, and Module Overview
+  - Certificates and PKI in Kubernetes
+  - kubeconfig Files and Certificate-based Authentication
+  - How Certificates Are Used in Kubernetes Clusters
+  - `Demo`: Investigating PKI Setup on a Control Plane Node
+  - `Demo`: Investigating a Control Plane Pod kubeconfig Configuration
+  - Creating Certificates with the Certificate API
+  - Creating a Certificate Signing Request in openssl
+  - Creating a CertificateSigningRequest Object
+  - Approving a CertificateSigningRequest and Retrieving a Certificate
+  - `Demo`: Creating a Certificate Signing Request for a New User in openssl
+  - `Demo`: Creating a CertificateSigningRequest Object, Approving a CertificateSigningRequest a...
+  - kubeconfig File Overview and Components
+  - kubeconfig File - admin.conf
+  - Creating a kubeconfig File Manually
+  - `Demo`: Working with kubeconfig Files and Contexts
+  - `Demo`: Creating a kubeconfig File for a New User
+  - `Demo`: Using a new kubeconfig File with a New User
+  - `Demo`: Creating a new Linux User and Configuring Cluster Access
+  - Module Review and What's Next!
+- **CHAPTER 28**<br>Managing Role Based Access Controls
+  - Introduction, Course, and Module Overview
+  - Role Based Access Controls and API Objects for RBAC
+  - Introducing Roles and ClusterRoles
+  - Introducing RoleBinding and ClusterRoleBinding
+  - What to Use When?
+  - Using RBAC in Your Cluster
+  - Default ClusterRoles
+  - Defining Role, RoleBinding, ClusterRole, and ClusterRoleBinding
+  - Creating a Role and a RoleBinding
+  - `Demo`: Creating a Role and RoleBinding
+  - `Demo`: Testing API Access with kubecti can-i and Impersonation
