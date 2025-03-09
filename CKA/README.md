@@ -1,149 +1,154 @@
 # Certified Kubernetes Administrator (CKA)
 
 ### Contents
-- Course Overview
-- Introduction, Course and Module Overview
-- What is Kubernetes? Kubernetes Benefits and Operating Principles
-- Introducing the Kubernetes API - Objects and API Server
-- Understanding API Objects - Pods
-- Understanding API Objects - Controllers
-- Understanding API Objects - Services
-- Understanding API Objects - Storage
-- Kubernetes Cluster Components Overview and Control Plane
-- Nodes
-- Cluster Add-on Pods
-- Pod Operations
-- Service Operations
-- Kubernetes Networking Dundamentals
-- Module summary and what is next
-
-- Module Overview
-- Installation Considerations
-- Installation Methods
-- Installation Requirements
-- Understanding Cluster Networking Ports
-- Getting Kubernetes
-- Building your Own Cluster
-- Installing Kubernetes on VMs
-- Lab Environment Overview
-- `Demo`: Installing and configuring containerd
-- `Demo`: Installing and configuring Kubernetes Packages
-- Bootstrapping a Cluster with kubeadm
-- Understanding the Certificate Authority Role in your Cluster
-- kubeadm Created kubeconfig Files and Static Pod Manifests
-- Pod Networking Fundamentals
-- Creating a Cluster Control Plane Node and Adding a Node
-- `Demo`: Creating a Cluster Control Plane Node
-- `Demo`: Adding a Node to Your Cluster
-- managed Cloud Deployment Scenarious: AKS, EKS, and GKE
-- `Demo`: Creating a Cluster in the Cloud with Azure Kubernetes Service
-- Module Summary and what is next
-
-- Module Overview
-- Introducing and using kubectl
-- A Closer Look at kubectl
-- `Demo`: using kubectl" Nodes, Pods, API Resources and bash Auto-Completion
-- Application and Pod Deployment in Kubernetes and Working with YAML manifests
-- `Demo`: Imperative Deployments and Working with Resources in Your Cluster
-- `Demo`: Exporting and Accessing Services in Your Cluster
-- `Demo`: Declarative Deployments and Accessing a Modifying Existing Resources in Your Cluster
-- Module Summary and Thank You
-
-- Course Overview
-- Introduction, Course and Module Overview
-- The Kubernetes API and API Server
-- The Control Plane and API Objects
-- Defining a Basic Pod Manifest
-- Using kubectl dry-run
-- Using with kubectl diff
-- Lab environment overview
-- `Demo`: API Server Discovery, Listing Resources, using kubectl explain and Creating Objects
-- `Demo`: Working with kubectl dry-run
-- `Demo`: Working with kubectl diff
-- API Group and API Versioning
-- `Demo`: API Object Discovery - API groups and Versions
-- Anatomy of an API Request: API Verbs and Special API Requests
-- API Resource Location (API Paths) and API Response Codes
-- Anatomy od an API Request - A Closer Look
-- `Demo`: Anatomy of an API Request
-- `Demo`: Special API Requests - Watch, Exec and Log
-- `Demo`: Authentication Failures and Missing Resources
-- Module Summary and What's Next
-
-- Introduction, Course and Module Overview
-- Organizing Objects in Kubernetes
-- Introducing and Working with Namespaces
-- Creating Namespaces and Creating Objects in Namespaces
-- `Demo`: Working with Namespaces and Objects in Namespaces
-- `Demo`: Performing Operations on Objects in Namespaces
-- Introducing and Working with Labels for Services and How Kubernetes Uses Labels
-- Using Labels for Services, Deployments, and Scheduling
-- `Demo`: Working with Labels - Creating, Querying and Editing
-- `Demo`: Dployments, ReplicaSets, Labels and Selectors
-- `Demo`: Services, labels, Selectors and Scheduling Pods to Nodes
-- Introducing and Working with Annotations
-- Module Summary and What's Next
-
-- Introducing, Course and Module Overview
-- Understanding Pods
-- How Pods Manage Containers
-- Introducing and Working with Single Container Pods and Contrillers
-- Intrducing and Working Static Pods
-- Working with Pods - kubectl exec, logs, and port-forward
-- `Demo`: Running Bare Pods and Pods in Controllers
-- `Demo`: Running Pods and Using kubectl port-forward to access a Pods Application
-- `Demo`: Working with Static Pods
-- Introducing and Working with Multi-container Pods
-- Demo: Running multi-container Pods and Sharing Data Between Containers in a Pod
-- Introducing and Working with Init Containers
-- `Demo`: Working with Init Containers
-- Pod Lifecyce, Stopping/terminating Pods, and Persistency of Pods
-- Introducing and Working with container restart Policy
-- `Demo`: Pod Lifecycle and Container Restart Policy
-- Defining Pod Health: livenessProbes, readinessProbes and startupProbes
-- Configuring and Defining Container Probes
-- `Demo`: Implementing Container Probes - livenessProbes and readinessProbes
-- `Demo`: Implementing Container Probes - startupProbes
-- Module Summary and Thank You
-- Course Overview
-
-- Introduction, Course and Module Overview
-- Kubernetes Principal, the Controller Manager and Introduction to Controllers
-- Lab Environmnet Review
-- `Demo`: Examining System Pods and Their Controllers
-- Introducing the Deployment Controller and Deployment basics
-- `Demo`: Creating a Basic Deploment Imperatively and Declaratively
-- Understanding ReplicaSet Controller Operations
-- `Demo`: Creating a deployment and replicaSet Controller Operations
-- `Demo`: replicaSet Controller Operations Working with Labels and Selectors
-- `Demo`: ReplicaSet Controller Operations - node Failures
-- Module Review and What's Next
-
-- Introduction, Course and Module Overview
-- Updating a Deployment and Checking Deployment Rollout Status
-- `Demo`: Understanding a Deployment and Checking Deployment Rollout Status
-- Using Deployment to change State and Controlling Updates with UpdateStrategy
-- Successfully Controlling Deployment Rollout and Defining an UpdateStrategy
-- Pausing and Rolling Back Deployments
-- `Demo`: Rolling Back a Deployment and Controlling the Rate of a Rollout with UpdateStrategy
-- `Demo`: Using UpdateStrategy and Readiness Probes to Control a Rollout
-- `Demo`: Restarting a Deployment
-- Scaling Deployments
-- `Demo`: Scaling a Deployment
-- Successful Deployment Tips, Module Review and What's Next
-
-- Introduction, Course and Module Overview
-- Controllers in Kubernetes and understanding DaemonSets
-- Updating DaemonSets
-- `Demo`: Creating and DaemonSets Controller Operations
-- `Demo`: Creating DeamonSets with NodeSelectos and Updating DeamonSets
-- Introducing and Working with Jobs
-- Introducing and Working with CronJobs
-- `Demo`: Executing Tasks with Jobs
-- `Demo`: Dealing with Job Failuers and restartPolicy
-- `Demo`: Working with Parallel Jobs and Scheduling Tasks with CronJobs
-- Introducing StatefulSets
-- Module Reivew and Thank You
+- **CHAPTER 1**<br>Kubernetes Installation and Configuration Fundamentals 
+  - Course Overview
+- **CHAPTER 2**<br>Exploring the Kubernetes Architecture
+  - Course Overview
+  - Introduction, Course and Module Overview
+  - What is Kubernetes? Kubernetes Benefits and Operating Principles
+  - Introducing the Kubernetes API - Objects and API Server
+  - Understanding API Objects - Pods
+  - Understanding API Objects - Controllers
+  - Understanding API Objects - Services
+  - Understanding API Objects - Storage
+  - Kubernetes Cluster Components Overview and Control Plane
+  - Nodes
+  - Cluster Add-on Pods
+  - Pod Operations
+  - Service Operations
+  - Kubernetes Networking Dundamentals
+  - Module summary and what is next
+- **CHAPTER 3**<br>Installing and Configuring Kubernetes
+  - Module Overview
+  - Installation Considerations
+  - Installation Methods
+  - Installation Requirements
+  - Understanding Cluster Networking Ports
+  - Getting Kubernetes
+  - Building your Own Cluster
+  - Installing Kubernetes on VMs
+  - Lab Environment Overview
+  - `Demo`: Installing and configuring containerd
+  - `Demo`: Installing and configuring Kubernetes Packages
+  - Bootstrapping a Cluster with kubeadm
+  - Understanding the Certificate Authority Role in your Cluster
+  - kubeadm Created kubeconfig Files and Static Pod Manifests
+  - Pod Networking Fundamentals
+  - Creating a Cluster Control Plane Node and Adding a Node
+  - `Demo`: Creating a Cluster Control Plane Node
+  - `Demo`: Adding a Node to Your Cluster
+  - managed Cloud Deployment Scenarious: AKS, EKS, and GKE
+  - `Demo`: Creating a Cluster in the Cloud with Azure Kubernetes Service
+  - Module Summary and what is next
+- **CHAPTER 4**<br>Working with Your Kubernetes Cluster
+  - Module Overview
+  - Introducing and using kubectl
+  - A Closer Look at kubectl
+  - `Demo`: using kubectl" Nodes, Pods, API Resources and bash Auto-Completion
+  - Application and Pod Deployment in Kubernetes and Working with YAML manifests
+  - `Demo`: Imperative Deployments and Working with Resources in Your Cluster
+  - `Demo`: Exporting and Accessing Services in Your Cluster
+  - `Demo`: Declarative Deployments and Accessing a Modifying Existing Resources in Your Cluster
+  - Module Summary and Thank You
+- **CHAPTER 5**<br>Managing the Kubernetes API Server and Pods - Course Overview
+  - Course Overview
+- **CHAPTER 6**<br>Using the Kubernetes API
+  - Introduction, Course and Module Overview
+  - The Kubernetes API and API Server
+  - The Control Plane and API Objects
+  - Defining a Basic Pod Manifest
+  - Using kubectl dry-run
+  - Using with kubectl diff
+  - Lab environment overview
+  - `Demo`: API Server Discovery, Listing Resources, using kubectl explain and Creating Objects
+  - `Demo`: Working with kubectl dry-run
+  - `Demo`: Working with kubectl diff
+  - API Group and API Versioning
+  - `Demo`: API Object Discovery - API groups and Versions
+  - Anatomy of an API Request: API Verbs and Special API Requests
+  - API Resource Location (API Paths) and API Response Codes
+  - Anatomy od an API Request - A Closer Look
+  - `Demo`: Anatomy of an API Request
+  - `Demo`: Special API Requests - Watch, Exec and Log
+  - `Demo`: Authentication Failures and Missing Resources
+  - Module Summary and What's Next
+- **CHAPTER 7**<br>Managing Objects with Labels, Annotations, and Namespaces
+  - Introduction, Course and Module Overview
+  - Organizing Objects in Kubernetes
+  - Introducing and Working with Namespaces
+  - Creating Namespaces and Creating Objects in Namespaces
+  - `Demo`: Working with Namespaces and Objects in Namespaces
+  - `Demo`: Performing Operations on Objects in Namespaces
+  - Introducing and Working with Labels for Services and How Kubernetes Uses Labels
+  - Using Labels for Services, Deployments, and Scheduling
+  - `Demo`: Working with Labels - Creating, Querying and Editing
+  - `Demo`: Dployments, ReplicaSets, Labels and Selectors
+  - `Demo`: Services, labels, Selectors and Scheduling Pods to Nodes
+  - Introducing and Working with Annotations
+  - Module Summary and What's Next
+- **CHAPTER 8**<br>Running and Managing Pods
+  - Introducing, Course and Module Overview
+  - Understanding Pods
+  - How Pods Manage Containers
+  - Introducing and Working with Single Container Pods and Contrillers
+  - Intrducing and Working Static Pods
+  - Working with Pods - kubectl exec, logs, and port-forward
+  - `Demo`: Running Bare Pods and Pods in Controllers
+  - `Demo`: Running Pods and Using kubectl port-forward to access a Pods Application
+  - `Demo`: Working with Static Pods
+  - Introducing and Working with Multi-container Pods
+  - Demo: Running multi-container Pods and Sharing Data Between Containers in a Pod
+  - Introducing and Working with Init Containers
+  - `Demo`: Working with Init Containers
+  - Pod Lifecyce, Stopping/terminating Pods, and Persistency of Pods
+  - Introducing and Working with container restart Policy
+  - `Demo`: Pod Lifecycle and Container Restart Policy
+  - Defining Pod Health: livenessProbes, readinessProbes and startupProbes
+  - Configuring and Defining Container Probes
+  - `Demo`: Implementing Container Probes - livenessProbes and readinessProbes
+  - `Demo`: Implementing Container Probes - startupProbes
+  - Module Summary and Thank You
+- **CHAPTER 9**<br>Managing Kubernetes Controllers and Deployments - Course Overview
+  - Course Overview
+- **CHAPTER 10**<br>Using Controllers to Deploy Applications and Deployment Basics
+  - Introduction, Course and Module Overview
+  - Kubernetes Principal, the Controller Manager and Introduction to Controllers
+  - Lab Environmnet Review
+  - `Demo`: Examining System Pods and Their Controllers
+  - Introducing the Deployment Controller and Deployment basics
+  - `Demo`: Creating a Basic Deploment Imperatively and Declaratively
+  - Understanding ReplicaSet Controller Operations
+  - `Demo`: Creating a deployment and replicaSet Controller Operations
+  - `Demo`: replicaSet Controller Operations Working with Labels and Selectors
+  - `Demo`: ReplicaSet Controller Operations - node Failures
+  - Module Review and What's Next
+- **CHAPTER 11**<br>Maintaining Applications with Deployments
+  - Introduction, Course and Module Overview
+  - Updating a Deployment and Checking Deployment Rollout Status
+  - `Demo`: Understanding a Deployment and Checking Deployment Rollout Status
+  - Using Deployment to change State and Controlling Updates with UpdateStrategy
+  - Successfully Controlling Deployment Rollout and Defining an UpdateStrategy
+  - Pausing and Rolling Back Deployments
+  - `Demo`: Rolling Back a Deployment and Controlling the Rate of a Rollout with UpdateStrategy
+  - `Demo`: Using UpdateStrategy and Readiness Probes to Control a Rollout
+  - `Demo`: Restarting a Deployment
+  - Scaling Deployments
+  - `Demo`: Scaling a Deployment
+  - Successful Deployment Tips, Module Review and What's Next
+- **CHAPTER 12**<br>Deploying and Maintaining Applications with DaemonSets and Jobs
+  - Introduction, Course and Module Overview
+  - Controllers in Kubernetes and understanding DaemonSets
+  - Updating DaemonSets
+  - `Demo`: Creating and DaemonSets Controller Operations
+  - `Demo`: Creating DeamonSets with NodeSelectos and Updating DeamonSets
+  - Introducing and Working with Jobs
+  - Introducing and Working with CronJobs
+  - `Demo`: Executing Tasks with Jobs
+  - `Demo`: Dealing with Job Failuers and restartPolicy
+  - `Demo`: Working with Parallel Jobs and Scheduling Tasks with CronJobs
+  - Introducing StatefulSets
+  - Module Reivew and Thank You
 
 - Course Overview
 - Introduction, Course and Module Overview
