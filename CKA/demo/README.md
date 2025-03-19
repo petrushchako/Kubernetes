@@ -2,7 +2,7 @@
 
 ### Contents
  
-- **CHAPTER 3**<br>Installing and Configuring Kubernetes
+- **CHAPTER 3**<br>**Installing and Configuring Kubernetes**<br><br>
   - `Demo`: Installing and configuring containerd
   - `Demo`: Installing and configuring Kubernetes Packages
   - `Demo`: Creating a Cluster Control Plane Node
@@ -11,7 +11,7 @@
 
 <br>
  
-- **CHAPTER 4**<br>Working with Your Kubernetes Cluster
+- **CHAPTER 4**<br>**Working with Your Kubernetes Cluster**<br><br>
   - `Demo`: using kubectl" Nodes, Pods, API Resources and bash Auto-Completion
   - `Demo`: Imperative Deployments and Working with Resources in Your Cluster
   - `Demo`: Exporting and Accessing Services in Your Cluster
@@ -19,7 +19,7 @@
 
 <br>
  
-- **CHAPTER 6**<br>Using the Kubernetes API
+- **CHAPTER 6**<br>**Using the Kubernetes API**<br><br>
   - `Demo`: API Server Discovery, Listing Resources, using kubectl explain and Creating Objects
   - `Demo`: Working with kubectl dry-run
   - `Demo`: Working with kubectl diff
@@ -30,7 +30,7 @@
 
 <br>
  
-- **CHAPTER 7**<br>Managing Objects with Labels, Annotations, and Namespaces
+- **CHAPTER 7**<br>**Managing Objects with Labels, Annotations, and Namespaces**<br><br>
   - `Demo`: Working with Namespaces and Objects in Namespaces
   - `Demo`: Performing Operations on Objects in Namespaces
   - `Demo`: Working with Labels - Creating, Querying and Editing
@@ -39,7 +39,7 @@
 
 <br>
  
-- **CHAPTER 8**<br>Running and Managing Pods
+- **CHAPTER 8**<br>**Running and Managing Pods**<br><br>
   - `Demo`: Running Bare Pods and Pods in Controllers
   - `Demo`: Running Pods and Using kubectl port-forward to access a Pods Application
   - `Demo`: Working with Static Pods
@@ -50,7 +50,7 @@
 
 <br>
  
-- **CHAPTER 10**<br>Using Controllers to Deploy Applications and Deployment Basics
+- **CHAPTER 10**<br>**Using Controllers to Deploy Applications and Deployment Basics**<br><br>
   - `Demo`: Examining System Pods and Their Controllers
   - `Demo`: Creating a Basic Deploment Imperatively and Declaratively
   - `Demo`: Creating a deployment and replicaSet Controller Operations
@@ -59,7 +59,7 @@
 
 <br>
  
-- **CHAPTER 11**<br>Maintaining Applications with Deployments
+- **CHAPTER 11**<br>**Maintaining Applications with Deployments**<br><br>
   - `Demo`: Understanding a Deployment and Checking Deployment Rollout Status
   - `Demo`: Rolling Back a Deployment and Controlling the Rate of a Rollout with UpdateStrategy
   - `Demo`: Using UpdateStrategy and Readiness Probes to Control a Rollout
@@ -68,7 +68,7 @@
 
 <br>
  
-- **CHAPTER 12**<br>Deploying and Maintaining Applications with DaemonSets and Jobs
+- **CHAPTER 12**<br>**Deploying and Maintaining Applications with DaemonSets and Jobs**<br><br>
   - `Demo`: Creating and DaemonSets Controller Operations
   - `Demo`: Creating DeamonSets with NodeSelectos and Updating DeamonSets
   - `Demo`: Executing Tasks with Jobs
@@ -77,7 +77,7 @@
 
 <br>
  
-- **CHAPTER 14**<br>Configuring and Managing Storage in Kubernetes
+- **CHAPTER 14**<br>**Configuring and Managing Storage in Kubernetes**<br><br>
   - `Demo`: Storage Server Overview
   - `Demo`: Static Provisioning Persistent Volumes
   - `Demo`: Using a Persistent Volume in a Pod
@@ -87,7 +87,7 @@
 
 <br>
  
-- **CHAPTER 15**<br>Configuration as Data - Environment Variables, Secrets, and ConfigMaps
+- **CHAPTER 15**<br>**Configuration as Data - Environment Variables, Secrets, and ConfigMaps**<br><br>
   - `Demo`: Passing Configuration into Containers with Environment Variables
   - `Demo`: Creating and Using Secrets
   - `Demo`: Accessing Secrets in Pods
@@ -96,7 +96,7 @@
 
 <br>
  
-- **CHAPTER 16**<br>Managing and Controlling the Kubernetes Scheduler
+- **CHAPTER 16**<br>**Managing and Controlling the Kubernetes Scheduler**<br><br>
   - `Demo`: Scheduling in Action and Scheduling Pods with Requests
   - `Demo`: Controlling Pod Placement with Affinity
   - `Demo`: Controlling Pod Placement with Taints and Tolerations
@@ -104,7 +104,7 @@
 
 <br>
  
-- **CHAPTER 18**<br>Kubernetes Networking Fundamentals
+- **CHAPTER 18**<br>**Kubernetes Networking Fundamentals**<br><br>
   - `Demo`: Investigating Kubernetes Networking - CNI Network Overview
   - `Demo`: Investigating Kubernetes Networking - CNI Overlay Network Routing
   - `Demo`: Investigating Kubernetes Networking - Kubenet Network Overview
@@ -117,7 +117,7 @@
 
 <br>
  
-- **CHAPTER 19**<br>Configuring and Managing Application Access with Services
+- **CHAPTER 19**<br>**Configuring and Managing Application Access with Services**<br><br>
   - `Demo`: Exposing and Accessing applications with Services - ClusterIP
   - `Demo`: Exposing and Accessing applications with Services - NodePort
   - `Demo`: Exposing and Accessing applications with Services - LoadBalancer
@@ -126,7 +126,7 @@
 
 <br>
  
-- **CHAPTER 20**<br>Configuring and Managing Application Access with Ingress
+- **CHAPTER 20**<br>**Configuring and Managing Application Access with Ingress**<br><br>
   - `Demo`: Deploying the NGINX Ingress Controller
   - `Demo`: Exposing a Single Service with Ingress
   - `Demo`: Exposing a Multiple Services with Ingress Using Path Based Routing
@@ -135,7 +135,7 @@
 
 <br>
  
-- **CHAPTER 22**<br>Maintaining Kubernetes Clusters
+- **CHAPTER 22**<br>**Maintaining Kubernetes Clusters**<br><br>
   - `Demo`: Investigating etcd Configuration
   - `Demo`: Backing up etcd with etcdctl
   - `Demo`: Restoring etcd to the Same Data Directory
@@ -145,7 +145,7 @@
 
 <br>
  
-- **CHAPTER 23**<br>Logging and Monitoring in Kubernetes Clusters
+- **CHAPTER 23**<br>**Logging and Monitoring in Kubernetes Clusters**<br><br>
   - `Demo`: Kubernetes Logging Architecture - Pods
   - `Demo`: Kubernetes Logging Architecture - Nodes
   - `Demo`: Kubernetes Logging Architecture - Control Plane Pods
@@ -157,7 +157,7 @@
 
 <br>
  
-- **CHAPTER 24**<br>Troubleshooting Kubernetes Clusters
+- **CHAPTER 24**<br>**Troubleshooting Kubernetes Clusters**<br><br>
   - `Demo`: Troubleshooting Nodes - Stopped kubelet
   - `Demo`: Troubleshooting Nodes - Inaccessible kubelet config.yaml
   - `Demo`: Troubleshooting Nodes - Misconfigured systemd Unit File
@@ -166,7 +166,7 @@
 
 <br>
  
-- **CHAPTER 26**<br>Kubernetes Security Fundamentals
+- **CHAPTER 26**<br>**Kubernetes Security Fundamentals**<br><br>
   - `Demo`: Investigating Certificate Based Authentication
   - `Demo`: Working with Service Accounts
   - `Demo`: Accessing the API Server Inside a Pod
@@ -175,7 +175,7 @@
 
 <br>
  
-- **CHAPTER 27**<br>Managing Certificates and kubeconfig Files
+- **CHAPTER 27**<br>**Managing Certificates and kubeconfig Files**<br><br>
   - `Demo`: Investigating PKI Setup on a Control Plane Node
   - `Demo`: Investigating a Control Plane Pod kubeconfig Configuration
   - `Demo`: Creating a Certificate Signing Request for a New User in openssl
@@ -187,6 +187,6 @@
 
 <br>
  
-- **CHAPTER 28**<br>Managing Role Based Access Controls
+- **CHAPTER 28**<br>**Managing Role Based Access Controls**<br><br>
   - `Demo`: Creating a Role and RoleBinding
   - `Demo`: Testing API Access with kubecti can-i and Impersonation
