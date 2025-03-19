@@ -1,8 +1,14 @@
 # Certified Kubernetes Administrator (CKA)
 
 ### Contents
+
+<br>
+ 
 - **CHAPTER 1**<br>Kubernetes Installation and Configuration Fundamentals 
   - Course Overview
+
+<br>
+ 
 - **CHAPTER 2**<br>Exploring the Kubernetes Architecture
   - Course Overview
   - Introduction, Course and Module Overview
@@ -19,6 +25,9 @@
   - Service Operations
   - Kubernetes Networking Dundamentals
   - Module summary and what is next
+
+<br>
+ 
 - **CHAPTER 3**<br>Installing and Configuring Kubernetes
   - Module Overview
   - Installation Considerations
@@ -41,6 +50,9 @@
   - managed Cloud Deployment Scenarious: AKS, EKS, and GKE
   - `Demo`: Creating a Cluster in the Cloud with Azure Kubernetes Service
   - Module Summary and what is next
+
+<br>
+ 
 - **CHAPTER 4**<br>Working with Your Kubernetes Cluster
   - Module Overview
   - Introducing and using kubectl
@@ -51,8 +63,14 @@
   - `Demo`: Exporting and Accessing Services in Your Cluster
   - `Demo`: Declarative Deployments and Accessing a Modifying Existing Resources in Your Cluster
   - Module Summary and Thank You
+
+<br>
+ 
 - **CHAPTER 5**<br>Managing the Kubernetes API Server and Pods - Course Overview
   - Course Overview
+
+<br>
+ 
 - **CHAPTER 6**<br>Using the Kubernetes API
   - Introduction, Course and Module Overview
   - The Kubernetes API and API Server
@@ -73,6 +91,9 @@
   - `Demo`: Special API Requests - Watch, Exec and Log
   - `Demo`: Authentication Failures and Missing Resources
   - Module Summary and What's Next
+
+<br>
+ 
 - **CHAPTER 7**<br>Managing Objects with Labels, Annotations, and Namespaces
   - Introduction, Course and Module Overview
   - Organizing Objects in Kubernetes
@@ -87,6 +108,9 @@
   - `Demo`: Services, labels, Selectors and Scheduling Pods to Nodes
   - Introducing and Working with Annotations
   - Module Summary and What's Next
+
+<br>
+ 
 - **CHAPTER 8**<br>Running and Managing Pods
   - Introducing, Course and Module Overview
   - Understanding Pods
@@ -109,8 +133,14 @@
   - `Demo`: Implementing Container Probes - livenessProbes and readinessProbes
   - `Demo`: Implementing Container Probes - startupProbes
   - Module Summary and Thank You
+
+<br>
+ 
 - **CHAPTER 9**<br>Managing Kubernetes Controllers and Deployments - Course Overview
   - Course Overview
+
+<br>
+ 
 - **CHAPTER 10**<br>Using Controllers to Deploy Applications and Deployment Basics
   - Introduction, Course and Module Overview
   - Kubernetes Principal, the Controller Manager and Introduction to Controllers
@@ -123,6 +153,9 @@
   - `Demo`: replicaSet Controller Operations Working with Labels and Selectors
   - `Demo`: ReplicaSet Controller Operations - node Failures
   - Module Review and What's Next
+
+<br>
+ 
 - **CHAPTER 11**<br>Maintaining Applications with Deployments
   - Introduction, Course and Module Overview
   - Updating a Deployment and Checking Deployment Rollout Status
@@ -136,6 +169,9 @@
   - Scaling Deployments
   - `Demo`: Scaling a Deployment
   - Successful Deployment Tips, Module Review and What's Next
+
+<br>
+ 
 - **CHAPTER 12**<br>Deploying and Maintaining Applications with DaemonSets and Jobs
   - Introduction, Course and Module Overview
   - Controllers in Kubernetes and understanding DaemonSets
@@ -149,8 +185,14 @@
   - `Demo`: Working with Parallel Jobs and Scheduling Tasks with CronJobs
   - Introducing StatefulSets
   - Module Reivew and Thank You
+
+<br>
+ 
 - **CHAPTER 13**<br>Configuring and Managing Kubernetes Storage and Scheduling - Course Overview
   - Course Overview
+
+<br>
+ 
 - **CHAPTER 14**<br>Configuring and Managing Storage in Kubernetes
   - Introduction, Course and Module Overview
   - Persistent Storage in Containers and Kubernetes
@@ -168,6 +210,9 @@
   - `Demo`: Dynamic Provisioning Volumes
   - `Demo`: Defining a Custom StorageClass
   - Module Review and What's Next!
+
+<br>
+ 
 - **CHAPTER 15**<br>Configuration as Data - Environment Variables, Secrets, and ConfigMaps
   - Introduction, Course and Module Overview
   - Why Do We Need Configuration as Data?
@@ -181,6 +226,9 @@
   - Creating and Using ConfigMaps
   - `Demo`: Creating and Using ConfigMaps
   - Module Review and What's Next!
+
+<br>
+ 
 - **CHAPTER 16**<br>Managing and Controlling the Kubernetes Scheduler
   - Introduction, Course and Module Overview
   - Understanding Scheduling in Kubernetes
@@ -193,8 +241,14 @@
   - Node Cordoning, Manual Scheduling, and Configuring Multiple Schedulers
   - `Demo`: Node Cordoning and Manually Scheduling a Pod
   - Module Review and Thank You!
+
+<br>
+ 
 - **CHAPTER 17**<br>Configuring and Managing Kubernetes Networking, Services, and Ingress - Course Overview
   - Course Overview
+
+<br>
+ 
 - **CHAPTER 18**<br>Kubernetes Networking Fundamentals
   - Course Overview
   - Introduction, Course and Module Overview
@@ -213,6 +267,9 @@
   - `Demo`: Examining Cluster DNS Records for Pods and Services
   - `Demo`: Additional Cluster DNS Demos
   - Module Review and What's Next!
+
+<br>
+ 
 - **CHAPTER 19**<br>Configuring and Managing Application Access with Services
   - Introduction, Course and Module Overview
   - Understanding Services in Kubernetes
@@ -227,6 +284,9 @@
   - `Demo`: Service Discovery with DNS
   - `Demo`: Service Discovery - Environment Variables
   - Module Review and What's Next!
+
+<br>
+ 
 - **CHAPTER 20**<br>Configuring and Managing Application Access with Ingress
   - Introduction, Course and Module Overview
   - Ingress Architecture and Overview
@@ -241,8 +301,14 @@
   - `Demo`: Using Name Based Virtual Hosts with Ingress
   - `Demo`: Using TLS Certificates with Ingress
   - Module Review and Thank You!
+
+<br>
+ 
 - **CHAPTER 21**<br>Maintaining, Monitoring and Troubleshooting Kubernetes - Course Overview
   - Course Overview
+
+<br>
+ 
 - **CHAPTER 22**<br>Maintaining Kubernetes Clusters
   - Introduction, Course and Module Overview
   - Introducing etcd and etcd Backup Concepts
@@ -261,6 +327,9 @@
   - High Availability Cluster Overview and High Availability Cluster Topology - Stacked etc
   - High Availability Cluster Topology - External etcd
   - Module Review and What's Next!
+
+<br>
+ 
 - **CHAPTER 23**<br>Logging and Monitoring in Kubernetes Clusters
   - Introduction, Course and Module Overview
   - Kubernetes Logging Architecture and Logging in Pods and Containers
@@ -279,6 +348,9 @@
   - `Demo`: Deploying the Kubernetes Metrics Server
   - `Demo`: Using kubect| top to Analyze Resource Consumption on Pods and Nodes
   - Module Review and What's Next!
+
+<br>
+ 
 - **CHAPTER 24**<br>Troubleshooting Kubernetes Clusters
   - Introduction, Course and Module Overview
   - Troubleshooting Tools and Troubleshooting Nodes
@@ -291,8 +363,14 @@
   - `Demo`: Troubleshooting Control Plane - Misconfigured Static Pod Manifests
   - Troubleshooting Workloads
   - Module Review and Thank You!
+
+<br>
+ 
 - **CHAPTER 25**<br>Configuring and Managing Kubernetes Security - Course Overview
   - Course Overview
+
+<br>
+ 
 - **CHAPTER 26**<br>Kubernetes Security Fundamentals
   - Introduction, Course, and Module Overview
   - Securing the API Server and Authentication Plugins
@@ -306,6 +384,9 @@
   - Authorization Plugins
   - `Demo`: Managing Authorization for Service Accounts
   - Module Review and What's Next!
+
+<br>
+ 
 - **CHAPTER 27**<br>Managing Certificates and kubeconfig Files
   - Introduction, Course, and Module Overview
   - Certificates and PKI in Kubernetes
@@ -327,6 +408,9 @@
   - `Demo`: Using a new kubeconfig File with a New User
   - `Demo`: Creating a new Linux User and Configuring Cluster Access
   - Module Review and What's Next!
+
+<br>
+ 
 - **CHAPTER 28**<br>Managing Role Based Access Controls
   - Introduction, Course, and Module Overview
   - Role Based Access Controls and API Objects for RBAC
