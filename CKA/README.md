@@ -1,7 +1,8 @@
 # Certified Kubernetes Administrator (CKA)
+#### Anthony E. Nocention
+##### Enterprise Architect @ Centino Systems<br> @nocentino<br>www.centinosystems.com
 
-### Contents
-
+### Contents 
 <br>
  
 - **CHAPTER 1**<br>Kubernetes Installation and Configuration Fundamentals 
