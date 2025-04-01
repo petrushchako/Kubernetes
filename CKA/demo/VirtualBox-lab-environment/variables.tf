@@ -33,3 +33,9 @@ variable "ubuntu_iso_path" {
   type        = string
   default     = "/path/to/ubuntu.iso"
 }
+
+variable "bridge_interface" {
+  description = "Your host machine's network interface used for bridging"
+  type        = string
+  default     = "enp0"  # Change this to match your network interface
+}
