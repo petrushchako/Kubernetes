@@ -1,55 +1,92 @@
-# Kubernetes Cluster with Terraform & VirtualBox
-
-This project automates the creation of a **Kubernetes cluster** with **VirtualBox VMs** using **Terraform**.
-
-## Prerequisites
-
-Ensure you have the following installed:
-
-- [Terraform](https://developer.hashicorp.com/terraform/downloads)
-- [VirtualBox](https://www.virtualbox.org/)
-- [Vagrant (optional)](https://developer.hashicorp.com/vagrant/downloads)
-
-## Configurable Variables
-
-Modify `variables.tf` before running Terraform:
-
-| Variable | Description | Default Value |
-|----------|-------------|---------------|
-| `bridge_interface` | Network interface for bridging | `"en0"` |
-| `vm_memory` | Memory for each VM | `"2048"` |
-| `vm_cpus` | CPU count per VM | `"2"` |
-| `iso_path` | Path to Ubuntu ISO | **Must be set via CLI** |
-
-## Usage
-
-### **Initialize Terraform**
-```sh
-terraform init
-```
-
-### **Apply Configuration**
-Set the **Ubuntu ISO path** dynamically when applying:
-```sh
-terraform apply -var="iso_path=/path/to/ubuntu.iso" -auto-approve
-```
-
-### 3️**Destroy Cluster (Optional)**
-```sh
-terraform destroy -auto-approve
-```
+# Kubernetes Cluster with VirtualBox
 
 ## Virtual Machines Created
 
-| Node | Role | IP Address |
-|------|------|-----------|
-| `c1-cp1` | Control Plane | `192.168.1.100` |
-| `c1-node1` | Worker Node | `192.168.1.101` |
-| `c1-node2` | Worker Node | `192.168.1.102` |
-| `c1-node3` | Worker Node | `192.168.1.103` |
+| Node | Role |
+|------|------|
+| `c1-cp1` | Control Plane |
+| `c1-node1` | Worker Node |
+| `c1-node2` | Worker Node |
+| `c1-node3` | Worker Node |
 
-## Notes
+<br><hr><br>
 
-- The **Ubuntu ISO path** **must be specified via CLI** when applying Terraform.
-- Ensure **VirtualBox network settings** allow **Bridged Adapter** on `en0`.
-- Post-installation, consider using **Ansible** to configure Kubernetes.
+## Configuring Static IPs and Hostnames on Ubuntu 22.04 VMs
+
+| VM Name   | IP Address       |
+|-----------|-----------------|
+| c1-cp1    | 192.178.1.100   |
+| c1-node1  | 192.178.1.101   |
+| c1-node2  | 192.178.1.102   |
+| c1-node3  | 192.178.1.103   |
+
+### Prerequisites
+- Ubuntu 22.04 installed on each VM
+- VirtualBox network set to **Bridged Adapter** or **Host-Only Network**
+- Access to each VM via terminal (either directly or via SSH)
+
+### Step 1: Identify Network Interface
+Run the following command to find your primary network interface:
+```bash
+ip a
+```
+Look for an interface name (e.g., `enp0s3` or `eth0`). This will be used in the next step.
+
+## Step 2: Configure Static IP
+Edit the Netplan configuration file:
+```bash
+sudo nano /etc/netplan/00-installer-config.yaml
+```
+Modify the file with the appropriate IP configuration, replacing `<interface>` with your actual interface name (e.g., `enp0s3`):
+
+```yaml
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    <interface>:
+      dhcp4: no
+      addresses:
+        - 192.178.1.100/24  # Change IP per VM
+      gateway4: 192.178.1.1  # Adjust as needed
+      nameservers:
+        addresses:
+          - 8.8.8.8
+          - 8.8.4.4
+```
+Save the file (`Ctrl + X`, then `Y`, then `Enter`).
+
+Apply the changes:
+```bash
+sudo netplan apply
+```
+Verify:
+```bash
+ip a | grep inet
+```
+
+### Step 3: Change Hostname
+Set the hostname to match the VM name:
+```bash
+sudo hostnamectl set-hostname c1-cp1  # Change accordingly
+```
+Update `/etc/hosts`:
+```bash
+sudo nano /etc/hosts
+```
+Add or modify the following line:
+```
+192.178.1.100  c1-cp1
+```
+Repeat these steps on each VM, adjusting the IP and hostname accordingly.
+
+### Step 4: Reboot & Verify
+Reboot the VM:
+```bash
+sudo reboot
+```
+After reboot, verify the changes:
+```bash
+hostname
+ip a | grep inet
+```
