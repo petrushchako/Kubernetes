@@ -25,7 +25,7 @@
 - VirtualBox network set to **Bridged Adapter** or **Host-Only Network**
 - Access to each VM via terminal (either directly or via SSH)
 
-<br><br><br>
+<br><br>
 
 ## Step 1: Identify Network Interface
 - Run the following command to find your primary network interface:
@@ -34,7 +34,7 @@
   ```
   Look for an interface name (e.g., `enp0s3` or `eth0`). This will be used in the next step.
 
-<br><br><br>
+<br><br>
 
 ## Step 2: Disable cloud-init network configuration
 - **Create the `99-disable-network-config.cfg` file**
@@ -50,7 +50,7 @@
   sudo cloud-init clean
   ```
 
-<br><br><br>
+<br><br>
 
 ## Step 3: Configure Static IP
 - Edit the Netplan configuration file:
@@ -89,9 +89,9 @@
   ip a | grep inet
   ```
 
-<br><br><br>
+<br><br>
 
-### Step 4: Change Hostname
+## Step 4: Change Hostname
 - Set the hostname to match the VM name:
   ```bash
   sudo hostnamectl set-hostname c1-cp1  # Change accordingly
@@ -106,9 +106,9 @@
   ```
   Repeat these steps on each VM, adjusting the IP and hostname accordingly.
 
-<br><br><br>
+<br><br>
 
-### Step 5: Reboot & Verify
+## Step 5: Reboot & Verify
 - Reboot the VM:
   ```bash
   sudo reboot
