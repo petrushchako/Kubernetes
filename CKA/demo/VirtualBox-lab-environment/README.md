@@ -44,15 +44,12 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    <interface>:
+    enp0s3:
       dhcp4: no
-      addresses:
-        - 192.178.1.100/24  # Change IP per VM
-      gateway4: 192.178.1.1  # Adjust as needed
+      addresses: [192.168.1.100/24]  # Change IP per VM
+      gateway4: 192.168.1.1  # Adjust as needed
       nameservers:
-        addresses:
-          - 8.8.8.8
-          - 8.8.4.4
+        addresses: [192.168.1.1, 8.8.8.8]
 ```
 Save the file (`Ctrl + X`, then `Y`, then `Enter`).
 
