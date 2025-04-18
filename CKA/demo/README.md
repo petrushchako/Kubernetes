@@ -3,11 +3,15 @@
 ### Contents
  
 - **CHAPTER 3**<br>**Installing and Configuring Kubernetes**<br><br>
-  - `Demo`: Installing and configuring containerd
-  - `Demo`: Installing and configuring Kubernetes Packages
-  - `Demo`: Creating a Cluster Control Plane Node
-  - `Demo`: Adding a Node to Your Cluster
-  - `Demo`: Creating a Cluster in the Cloud with Azure Kubernetes Service
+  - `Demo 1.1`: Installing and configuring containerd
+  - `Demo 1.2`: Installing and configuring Kubernetes Packages
+  - `Demo 1.3`: Bootstrapping Cluster with kubeadm
+  - `Demo 1.4`: Creating Cluster: Deploy Pod Network
+  - `Demo 1.5`: Creating Cluster: Examining systemd Units and Static Pod Manifest
+  - `Demo 1.6`: Bootstrapping Cluster with kubeadm Worker Nodes
+  - `Demo 1.7`: Creating Cluster: Install Kubernetes Packages on Worker Node
+  - `Demo 1.8`: Creating Cluster: Joining Worker Node to Cluster
+  - `Demo 1.9`: Deploy Basic Workload
 
 <br>
  
