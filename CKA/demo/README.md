@@ -16,7 +16,7 @@
 <br>
  
 - **CHAPTER 4**<br>**Working with Your Kubernetes Cluster**<br><br>
-  - `Demo 2.1`: using kubectl Nodes, Pods, API Resources and bash Auto-Completion
+  - `Demo 2.1`: Using kubectl Nodes, Pods, API Resources and bash Auto-Completion
   - `Demo 2.2`: Imperative Deployments and Working with Resources in Your Cluster
   - `Demo`: Exporting and Accessing Services in Your Cluster
   - `Demo`: Declarative Deployments and Accessing a Modifying Existing Resources in Your Cluster
