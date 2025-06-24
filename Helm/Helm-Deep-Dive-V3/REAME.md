@@ -1,4 +1,4 @@
-# Helm Deep Dive V3 – Table of Contents
+# Helm Deep Dive V3
 Take a deep dive into Helm, a package management solution for Kubernetes.
 
 <br>
