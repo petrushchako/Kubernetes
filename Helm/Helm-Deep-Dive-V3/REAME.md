@@ -74,3 +74,27 @@ Deploying applications on Kubernetes involves multiple resources like services, 
 * Contain configuration (via templates and values)
 * Are installed via `helm install` with a single command
 * Bundle all required components and logic for proper deployment
+
+<br>
+
+### Helm’s Functionality
+Helm provides a set of powerful features:
+* **Single-command installation**: `helm install` deploys entire applications
+* **Upgrade support**: `helm upgrade` changes only what’s necessary (least invasive changes)
+* **Rollback support**: `helm rollback` restores to the previous known good state
+* **Release tracking**: Helm tracks what's currently running versus what should be running
+* **Status reporting**: `helm status` reports the current state of a release
+* **Consistent environments**: Charts ensure that test and production deployments remain identical
+* **Clean uninstalls**: `helm uninstall` removes the application and its resources cleanly
+
+<br>
+
+### Summary
+Helm encapsulates best practices and deployment knowledge into reusable charts. This allows users to:
+* Deploy applications without deep architectural knowledge
+* Perform upgrades and rollbacks easily
+* Maintain consistency across environments
+* Reduce time spent on manual Kubernetes resource management
+
+
+<br><br><br>
