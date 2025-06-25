@@ -55,25 +55,26 @@ These package managers resolve dependencies, simplify upgrades, and eliminate th
 <br>
 
 ### The Problem with Unmanaged Software
-Without a package manager, installing software can result in:
+**Without a package manager, installing software can result in**:
 * Dependency issues (a "dependency nightmare")
 * Lack of meaningful error messages
 * Manual configuration
 * Fragmented update processes requiring deep application knowledge
 
-Package managers solve these problems by:
-* Reading metadata
-* Resolving and downloading dependencies
-* Installing components in proper sequence
-* Applying post-install configuration as needed
+**Package managers solve these problems by**:
+* Reading metadata<br>Packaged applications have accompanying data that indicates how it is installed (e.g. dependencies)
+* Resolve dependencies<br>Not only do we know what the application stack depends on, we also know where to get it and how to install it.
+* Installation<br>The pieces of tha package are installed in order. This prevents failures by ensuring that requirements are met.
+* Configuration<br>The installed components of a package may require post installation steps (e.g. linking databases).
 
 <br>
 
 ### Applying Package Management Concepts to Kubernetes
-Deploying applications on Kubernetes involves multiple resources like services, pods, and DNS configurations. Helm abstracts this complexity by introducing **charts**, which are complete definitions of Kubernetes applications. These charts:
-* Contain configuration (via templates and values)
-* Are installed via `helm install` with a single command
-* Bundle all required components and logic for proper deployment
+Deploying applications on Kubernetes involves multiple resources like services, pods, and DNS configurations. Helm abstracts this complexity by introducing **charts**, which are complete definitions of Kubernetes applications. This is how Helm manages packages:
+- **Helm Chart**<br>This is the defenition of K8s application. helm uses this information along with a config to instantiate a released object.
+- **Least Invasive Change**<br>In the event that there is a change to a release, Helm will only change what has been updated since last release.
+- **Running vs Desired State**<br>If a Helm chart has been released, Helm can determine what the current state of the environment is cs the desired state and make changes as needed.
+- **Release Tracking**<br>Helm versions releases. This means that if something goes wrong, the release can be rolled back to previous version.
 
 <br>
 
@@ -98,3 +99,5 @@ Helm encapsulates best practices and deployment knowledge into reusable charts. 
 
 
 <br><br><br>
+
+
