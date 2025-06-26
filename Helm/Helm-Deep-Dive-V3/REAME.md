@@ -101,3 +101,33 @@ Helm encapsulates best practices and deployment knowledge into reusable charts. 
 <br><br><br>
 
 
+
+## Deploying Kubernetes Resources Without Helm
+This lesson demonstrates the manual process of deploying applications in Kubernetes **without using Helm**. The purpose is to expose the complexity of the process to highlight the advantages Helm provides.
+
+### The Five-Step Deployment Process (Without Helm)
+1. **Scope the Deployment**
+   * Determine infrastructure needs:
+     * Persistent volumes
+     * Services
+     * Storage classes
+     * Component interconnectivity
+2. **Define Dependencies**
+   * Identify backend requirements:
+     * Databases
+     * Flat files
+     * Data persistence strategies
+3. **Create Manifest Files**
+   * Write YAML manifests for each component:
+     * Pods (e.g., database pods)
+     * Services to expose those pods
+     * Persistent volume claims
+     * Application configurations
+
+4. **Apply the Manifests**
+   * Use `kubectl apply -f` for each YAML file individually
+   * Order matters: deploy dependencies (e.g., database) first
+
+5. **Perform Post-Deployment Configuration**
+   * Validate services are reachable
+   * Apply any manual configurations (e.g., environment variables, secret injection, health checks)
