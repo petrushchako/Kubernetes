@@ -131,3 +131,53 @@ This lesson demonstrates the manual process of deploying applications in Kuberne
 5. **Perform Post-Deployment Configuration**
    * Validate services are reachable
    * Apply any manual configurations (e.g., environment variables, secret injection, health checks)
+
+<br>
+
+### Demonstration Setup
+* A **three-node Kubernetes cluster** is used
+* Already configured:
+  * A storage class
+  * Persistent volumes
+
+A [GitHub repository](https://github.com/linuxacademy/content-helm-deep-dive-v3) containing:
+  * `mysql.yml`: Deploys a MySQL pod with service and PVC
+  * `wp.yml`: Deploys a WordPress pod that connects to MySQL
+
+<br>
+
+### Deployment Walkthrough
+1. Apply MySQL manifest:
+   ```bash
+   kubectl apply -f mysql.yml
+   ```
+
+   * Deploys:
+     * MySQL pod
+     * MySQL service
+     * Persistent volume claim
+
+2. Apply WordPress manifest:
+   ```bash
+   kubectl apply -f wp.yml
+   ```
+
+   * Interacts with the MySQL service
+   * Based on Kubernetes official tutorial examples
+
+3. Validation:
+   ```bash
+   kubectl get pods
+   kubectl get services
+   ```
+
+4. Cleanup:
+   ```bash
+   kubectl delete -f mysql.yml
+   kubectl delete -f wp.yml
+   ```
+
+   * Each manifest must be deleted manually
+   * Requires tracking which files were used during deployment
+
+<br><br><br>
