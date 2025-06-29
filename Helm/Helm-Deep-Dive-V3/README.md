@@ -181,3 +181,60 @@ A [GitHub repository](https://github.com/linuxacademy/content-helm-deep-dive-v3)
    * Requires tracking which files were used during deployment
 
 <br><br><br>
+
+
+## Deploying to Kubernetes Using Helm
+### Overview
+Helm simplifies deploying applications to Kubernetes by packaging Kubernetes resources into reusable, versioned bundles called **charts**. This process is easier to manage than traditional YAML-based deployments.
+
+<br>
+
+### Deployment Steps
+1. **Locate a Chart**
+   Find a Helm chart from a repository (e.g., `stable/wordpress`). Charts are pre-configured collections of Kubernetes resources created by others for reuse.
+2. **Install the Chart**
+   Use the `helm install` command with a unique release name to deploy the chart:
+   ```bash
+   helm install demowp stable/wordpress
+   ```
+3. **Configure the Release**
+   After installation, Helm provides instructions or output detailing how to perform post-deployment configuration (e.g., credentials, URLs).
+
+<br>
+
+### Example Scenario
+* The cluster already has a storage class and persistent volumes.
+* When deploying WordPress via Helm, the chart requests persistent volumes. If the volumes are already in use by another release, new pods may fail to start due to unbound PVCs.
+* Multiple instances of the same chart can be deployed using different release names:
+
+  ```bash
+  helm install anotherwp stable/wordpress
+  ```
+
+<br>
+
+### Managing Releases
+* **List Releases**:
+  ```bash
+  helm ls
+  ```
+
+* **Delete a Release**:
+  ```bash
+  helm delete demowp
+  ```
+
+* Deleting a release will remove all Kubernetes resources (pods, services, PVCs) created by that release, simplifying cleanup.
+
+<br>
+
+### Key Benefits of Helm
+* Reusability: Deploy multiple instances of the same chart.
+* Easy Cleanup: `helm delete` handles cleanup automatically.
+* Simplicity: Abstracts away complex Kubernetes manifests.
+* Configurability: Allows post-install configuration through chart values.
+
+
+<br><br><br>
+
+
