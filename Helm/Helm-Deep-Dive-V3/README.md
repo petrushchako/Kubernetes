@@ -238,3 +238,51 @@ Helm simplifies deploying applications to Kubernetes by packaging Kubernetes res
 <br><br><br>
 
 
+## Getting Familiar with Helm<br>
+
+## Helm Installation
+### Prerequisites
+* Ensure a Kubernetes cluster is up and running.
+* Ensure `kubectl` is installed **on your local machine** (not inside the cluster).
+* Verify `kubectl` can access the cluster using:
+
+  ```bash
+  kubectl get nodes
+  ```
+
+<br>
+
+### Helm Installation Methods
+There are **three main ways** to install Helm:
+
+#### 1. **Using a Package Manager** (Recommended)
+* Suitable for Windows, macOS, and Linux.
+* Simplifies future updates and maintenance.
+* Example (macOS with Homebrew):
+  ```bash
+  brew install helm
+  ```
+
+#### 2. **Using the Provided Script**
+* Official Helm script: `get_helm.sh`
+* Process:
+  ```bash
+  curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+  chmod 700 get_helm.sh
+  ./get_helm.sh
+  ```
+* Script logic:
+  * Determines OS
+  * Downloads the correct binary
+  * Verifies the file
+  * Installs Helm
+
+#### 3. **Manual Installation**
+* Download the appropriate `.tar.gz` archive for your OS.
+* Example (Linux):
+  ```bash
+  wget https://get.helm.sh/helm-v3.14.0-linux-amd64.tar.gz
+  tar -zxvf helm-v3.14.0-linux-amd64.tar.gz
+  sudo mv linux-amd64/helm /usr/local/bin/helm
+  helm version
+  ```
