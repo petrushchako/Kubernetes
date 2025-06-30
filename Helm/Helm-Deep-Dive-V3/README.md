@@ -286,3 +286,40 @@ There are **three main ways** to install Helm:
   sudo mv linux-amd64/helm /usr/local/bin/helm
   helm version
   ```
+
+<br>
+
+### Post-Installation Steps
+Once Helm is installed, it has **no repositories configured** by default.
+1. **Add a Repository** (e.g., the deprecated stable repo):
+   ```bash
+   helm repo add stable https://charts.helm.sh/stable
+   ```
+
+2. **Update Repository Cache**:
+   ```bash
+   helm repo update
+   ```
+
+3. **Search for a Chart**:
+   ```bash
+   helm search repo wordpress
+   ```
+
+4. **Install a Demo Chart**:
+   ```bash
+   helm install my-wordpress stable/wordpress
+   ```
+
+5. **Verify Installation**:
+   ```bash
+   kubectl get pods
+   helm ls
+   ```
+
+6. **Delete the Release (Cleanup)**:
+   ```bash
+   helm delete my-wordpress
+   ```
+
+<br><br><br>
