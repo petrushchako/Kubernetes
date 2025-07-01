@@ -326,9 +326,25 @@ Once Helm is installed, it has **no repositories configured** by default.
 
 ## Working with Chart Repositories
 ### What Is a Chart Repository?
-* A **chart repository** is simply an HTTP server that serves an `index.yaml` file that tells Helm what charts are available, their versions, and where to download them.
-* It can be hosted on any HTTP server (e.g., **GitHub Pages** is commonly used).
+- A chart repository is an HTTP server that is capable of serving an index.yaml file. This file contains the manifests of packaged charts and where they are located.
+- The index file for the repository can be created by using the helm repo index command and providing the directory which contains the packaged charts.
+- A packaged chart is a Helm chart that has been processed into a tar archive by Helm, typically using the helm package command and providing the chart name. These archives have a .tgz extension.
 
+### Sample chart (`index. yaml`)
+```yaml
+apiVersion: v1
+entries:
+  alpine:
+    - created: 2239-10-06T36:23:20.4998+06:00
+      description: Deploy a basic Alpine Linux pod
+      digest: 1234567890987654321abcdefghlmnop
+      name: alpine
+      sources:
+      - https://github.com/helm/helm
+      urls:
+      - https://acg.github.io/example/cusalp-0.2.0.tgz
+      version: 0.2.0
+```
 <br>
 
 ### Creating an Index
