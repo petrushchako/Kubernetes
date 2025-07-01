@@ -323,3 +323,56 @@ Once Helm is installed, it has **no repositories configured** by default.
    ```
 
 <br><br><br>
+
+## Working with Chart Repositories
+### What Is a Chart Repository?
+* A **chart repository** is simply an HTTP server that serves an `index.yaml` file.
+* It can be hosted on any HTTP server (e.g., **GitHub Pages** is commonly used).
+
+<br>
+
+### Creating an Index
+* Use the `helm repo index` command to create an `index.yaml`:
+  ```
+  helm repo index <directory>
+  ```
+* Helm scans the specified directory for packaged charts (`.tgz`) and builds an index.
+
+<br>
+
+### Example Setup
+1. **Create directory** for charts:
+   ```
+   mkdir example && cd example
+   ```
+
+2. **Fetch example charts** using `helm fetch`:
+   ```
+   helm fetch stable/spark
+   helm fetch stable/some-other-chart
+   ```
+
+3. Charts are downloaded as `.tgz` files.
+4. **Generate the index**:
+   ```
+   cd ..
+   helm repo index example
+   ```
+
+5. The `example/` folder now contains:
+   * `index.yaml`
+   * Two `.tgz` chart files
+
+6. This folder can be hosted via GitHub Pages or another HTTP server to serve as a custom chart repository.
+
+<br>
+
+### Repository Management Commands
+| Command                      | Description            |
+| ---------------------------- | ---------------------- |
+| `helm repo add <name> <url>` | Adds a new repo        |
+| `helm repo list`             | Lists configured repos |
+| `helm repo update`           | Updates repo data      |
+| `helm repo remove <name>`    | Removes a repo         |
+
+> You must provide a name when using `helm repo add`, or the command will fail.
