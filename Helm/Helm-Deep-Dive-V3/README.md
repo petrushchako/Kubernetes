@@ -376,3 +376,34 @@ Once Helm is installed, it has **no repositories configured** by default.
 | `helm repo remove <name>`    | Removes a repo         |
 
 > You must provide a name when using `helm repo add`, or the command will fail.
+
+<br>
+
+### Custom Repository Workflow
+* Add custom repo hosted on GitHub Pages:
+  ```
+  helm repo add custom https://username.github.io/repo-name
+  ```
+
+* Remove default repo to avoid confusion:
+  ```
+  helm repo remove stable
+  ```
+
+* Update repo:
+  ```
+  helm repo update
+  ```
+
+* Search in custom repo:
+  ```
+  helm search repo spark
+  ```
+
+* The result will show: `custom/spark`
+
+<br>
+
+### Modifying Charts
+* Charts are `.tar.gz` files and can be **unpacked**, modified, and **repackaged**.
+* Updated charts can be committed and redeployed to the custom repo.
