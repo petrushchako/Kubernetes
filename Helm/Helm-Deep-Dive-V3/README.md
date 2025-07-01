@@ -326,7 +326,7 @@ Once Helm is installed, it has **no repositories configured** by default.
 
 ## Working with Chart Repositories
 ### What Is a Chart Repository?
-* A **chart repository** is simply an HTTP server that serves an `index.yaml` file.
+* A **chart repository** is simply an HTTP server that serves an `index.yaml` file that tells Helm what charts are available, their versions, and where to download them.
 * It can be hosted on any HTTP server (e.g., **GitHub Pages** is commonly used).
 
 <br>
@@ -381,22 +381,22 @@ Once Helm is installed, it has **no repositories configured** by default.
 
 ### Custom Repository Workflow
 * Add custom repo hosted on GitHub Pages:
-  ```
+  ```sh
   helm repo add custom https://username.github.io/repo-name
   ```
 
 * Remove default repo to avoid confusion:
-  ```
+  ```sh
   helm repo remove stable
   ```
 
 * Update repo:
-  ```
+  ```sh
   helm repo update
   ```
 
 * Search in custom repo:
-  ```
+  ```sh
   helm search repo spark
   ```
 
