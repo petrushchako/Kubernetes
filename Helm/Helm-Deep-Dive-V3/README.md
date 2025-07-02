@@ -357,18 +357,25 @@ entries:
 <br>
 
 ### Example Setup
-1. **Create directory** for charts:
+1. **Set repo** for charts:
    ```
-   mkdir example && cd example
+   helm repo add stable https://charts.helm.sh/stable
    ```
 
 2. **Fetch example charts** using `helm fetch`:
    ```
+   mkdir example && cd example
+   helm fetch stable/jenkins
    helm fetch stable/spark
-   helm fetch stable/some-other-chart
    ```
 
-3. Charts are downloaded as `.tgz` files.
+3. Charts are downloaded as `.tgz` files:
+   ```sh
+   ls -lt
+   -rw-r--r--  1 alex  staff  53303 Jul  2 22:48 jenkins-2.5.4.tgz
+   -rw-r--r--  1 alex  staff   5872 Jul  2 22:51 spark-1.0.5.tgz
+   ```
+
 4. **Generate the index**:
    ```
    cd ..
