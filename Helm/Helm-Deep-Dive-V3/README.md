@@ -430,3 +430,54 @@ entries:
 ### Modifying Charts
 * Charts are `.tar.gz` files and can be **unpacked**, modified, and **repackaged**.
 * Updated charts can be committed and redeployed to the custom repo.
+
+
+<br><br><br>
+
+
+## Updating Releases in Helm
+### Chart + Values = Release
+A **Helm release** is created by combining:
+* A **Helm chart** (which defines the Kubernetes resources)
+* A **`values.yaml`** file (which provides configurable parameters)
+
+These are merged into a final Kubernetes **manifest**, which is what gets deployed to the cluster.
+
+<br>
+
+### Example Scenario
+If a chart specifies `alpine` and `mysql` containers, and the `values.yaml` provides versions like `1.0.6` and `3.0.6`, the resulting release will reflect these versions.<br>The release version is defined in `Chart.yaml` and should be incremented **manually** if the chart is physically modified (e.g., after using `helm fetch` and making local edits).
+
+<br>
+
+### Updating a Running Release
+To update a **running release** without modifying the actual chart files:
+
+```bash
+helm upgrade <release-name> <chart-name> --set <key>=<value>
+```
+
+Example:
+```bash
+helm upgrade example ngin --set image.tag=alpine
+```
+
+This upgrades only the running configuration without changing the chart on disk. Helm creates a new **revision** of the release, e.g., from **revision 1** to **revision 2**.
+
+<br>
+
+### How Helm Upgrade Works
+* Helm identifies what has changed and only updates the affected resources.
+* For example, a new Pod is created with the updated image (`nginx:alpine`), and the old Pod is terminated.
+* The **Service** remains untouched if it hasn’t changed.
+* This allows targeted updates without redeploying the entire chart.
+
+<br>
+
+### Persistent vs. Temporary Changes
+* Temporary override: Done using `--set` or custom `values.yaml`
+* Permanent change: Modify `Chart.yaml` or `values.yaml` in the chart directory and redeploy
+
+<br><br><br>
+
+
