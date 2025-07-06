@@ -481,3 +481,31 @@ This upgrades only the running configuration without changing the chart on disk.
 <br><br><br>
 
 
+## Getting into Helm Charts
+## Helm Charts Overview
+### What Is a Helm Chart?<br>
+A **Helm chart** is a structured collection of files that defines Kubernetes resources. It serves as a template engine for creating Kubernetes manifests automatically.
+
+* Acts as a blueprint for deploying apps/services.
+* Simplifies repetitive deployments by parameterizing configurations.
+* Combines `Chart.yaml` and `values.yaml` to generate Kubernetes manifests.
+
+<br>
+
+### Helm Chart Directory Structure<br>
+When you run `helm create <chart-name>`, Helm scaffolds the chart structure as follows:
+* **Chart.yaml**
+  Contains metadata about the chart (name, version, app version).
+* **values.yaml**
+  Defines default configuration values used by templates.
+* **templates/**
+  Contains Kubernetes manifest templates (e.g., Deployment, Service, Ingress).
+  * `templates/notes.txt` displays usage hints after installing the chart.
+* **charts/**
+  Directory for chart dependencies.
+* **crds/** (optional)
+  Stores custom resource definitions.
+* **README.md, LICENSE** (optional)
+  For documentation and licensing.
+* **schema.json** (optional)
+  Defines JSON schema for validating `values.yaml`.
