@@ -509,3 +509,38 @@ When you run `helm create <chart-name>`, Helm scaffolds the chart structure as f
   For documentation and licensing.
 * **schema.json** (optional)
   Defines JSON schema for validating `values.yaml`.
+
+<br>
+
+### Working with Charts<br>
+**1. Fetching Existing Charts**
+You can pull a chart from a repo using:
+```bash
+helm fetch stable/wordpress
+```
+
+This downloads a packaged `.tgz` file. Extract it to inspect the structure.
+
+**2. Creating Your Own Chart**
+To scaffold a new chart:
+```bash
+helm create demo
+```
+
+This creates a directory named `demo` with all base files and structure.
+
+<br>
+
+### Viewing Manifest Output Without Deploying<br>
+To preview what Kubernetes manifests will be generated:
+```bash
+helm install demo ./demo --dry-run
+```
+
+This command renders the templates with default values but does **not** install anything.
+
+Output includes rendered YAML for:
+  * Deployment (`templates/deployment.yaml`)
+  * Service (`templates/service.yaml`)
+  * Notes (`templates/notes.txt`)
+
