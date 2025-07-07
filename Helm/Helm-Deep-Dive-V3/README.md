@@ -605,4 +605,19 @@ This displays the structure of `values.yaml`, helping you understand how to corr
 
 <br>
 
+### Full Chart Customization
+To completely customize a chart:
+
+* Download or fetch the chart
+* Unpack it (`.tgz`) and make modifications directly to:
+
+  * `values.yaml`
+  * `templates/*`
+  * `Chart.yaml`
+
+This is a **destructive** approach and should involve updating the chart’s version to reflect changes.
+
+
+<br><br><br>
+
 
