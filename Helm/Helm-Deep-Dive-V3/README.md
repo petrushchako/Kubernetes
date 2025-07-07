@@ -570,3 +570,39 @@ You can stack multiple overrides:
    ```
 
 <br>
+
+### File-Based Overrides Using `--values`
+To persist changes or track them in source control:
+
+* Create a YAML file (e.g., `newvalues.yaml`)
+* Use the `--values` or `-f` flag to supply it during installation
+
+**Example - newvalues.yaml**:
+   ```yaml
+   image:
+   tag: latest
+   ```
+
+**Install with file override**:
+   ```bash
+   helm install demo ./example -f newvalues.yaml --dry-run
+   ```
+
+This method is ideal for:
+* Reproducibility
+* Source-controlled configuration
+* Overriding public charts with internal values
+
+<br>
+
+### Inspecting Chart Values
+To see what values are available for overriding:
+   ```bash
+   helm show values ./example
+   ```
+
+This displays the structure of `values.yaml`, helping you understand how to correctly override nested keys (e.g., `image.tag` or `service.type`).
+
+<br>
+
+
