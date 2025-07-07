@@ -621,3 +621,41 @@ This is a **destructive** approach and should involve updating the chart’s ver
 <br><br><br>
 
 
+## Understanding the Language of Helm Charts
+### Why Use Templates?
+* **Reusability**: Templates can be reused across multiple deployments without rewriting them.
+* **Configurability**: You can override values during installation via the `values.yaml` file or CLI.
+* **Pluggability**: Template sections (like a `Service`) can be copied and reused in other charts.
+* **Versatility**: Templates work with different values, avoiding hardcoding.
+* **Maintainability**: Most changes can be made in `values.yaml` or `Chart.yaml`, not in the templates themselves.
+
+<br>
+
+### Helm Template Syntax and Structure
+* Helm templates use the **Go templating language**.
+* **Directives** are enclosed in `{{ ... }}`.
+* To reference values from `values.yaml`, use dot notation:
+
+  Example:
+
+  ```yaml
+  image:
+    registry: docker.io
+  ```
+
+  Template directive:
+
+  ```gotemplate
+  {{ .Values.image.registry }}
+  ```
+
+  Output:
+
+  ```
+  docker.io
+  ```
+
+* **Dot (`.`)** at the beginning refers to the **root context** (top level of the chart directory).
+
+* Nested fields are accessed using dot notation:
+  e.g., `{{ .Values.resources.requests.cpu }}`
