@@ -659,3 +659,18 @@ This is a **destructive** approach and should involve updating the chart’s ver
 
 * Nested fields are accessed using dot notation:
   e.g., `{{ .Values.resources.requests.cpu }}`
+
+<br>
+
+### Conditionals in Templates
+* Use `if` statements to conditionally include content based on values:
+  ```gotemplate
+  {{- if .Values.securityContext.enabled }}
+  runAsUser: {{ .Values.securityContext.runAsUser }}
+  {{- end }}
+  ```
+  * This block will only render if `.Values.securityContext.enabled` is `true`.
+
+<br>
+
+
