@@ -544,3 +544,29 @@ Output includes rendered YAML for:
   * Service (`templates/service.yaml`)
   * Notes (`templates/notes.txt`)
 
+
+
+<br><br><br>
+
+
+## Modifying Helm Charts
+### Inline Modifications Using `--set`
+
+You can override chart values temporarily using the `--set` flag during `helm install` or `helm upgrade`. This is ideal for:
+
+* Testing changes that don’t need to persist
+* Overriding specific keys in `values.yaml` without editing files
+
+**Example**:
+
+   ```bash
+   helm install demo ./example --set image.tag=latest --dry-run
+   ```
+
+You can stack multiple overrides:
+
+   ```bash
+   helm install demo ./example --set image.tag=latest --set service.type=NodePort --dry-run
+   ```
+
+<br>
