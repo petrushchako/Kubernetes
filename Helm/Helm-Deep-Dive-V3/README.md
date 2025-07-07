@@ -673,4 +673,18 @@ This is a **destructive** approach and should involve updating the chart’s ver
 
 <br>
 
+### Pipelining and Functions
+* **Pipelining (`|`)** allows chaining output to functions:
+  ```gotemplate
+  {{ .Values.first | quote }}
+  ```
+
+  * This sends `.Values.first` to the `quote` function, which wraps it in quotes.
+  * Common in dry runs or rendering config values safely.
+
+* The Go templating language provides many functions for manipulating text, logic, and formatting.
+
+
+<br><br><br>
+
 
