@@ -688,3 +688,59 @@ This is a **destructive** approach and should involve updating the chart’s ver
 <br><br><br>
 
 
+## Working with Subcharts
+### Subcharts Overview
+* A **subchart** is a Helm chart located within the `charts/` directory of a **parent chart**.
+* Subcharts are standalone:
+  * They have their own `Chart.yaml` and `values.yaml`.
+  * They **cannot access** values defined outside their own scope (i.e., no access to the parent chart’s values unless explicitly passed).
+
+<br>
+
+### Overriding Subchart Values
+* The **parent chart** can override values of a subchart through its own `values.yaml`.
+* These overrides are done using the **subchart's name** as a key:
+  ```
+  mariadb:
+    replication:
+      enabled: false
+  ```
+
+  * This would override the same values inside the `mariadb` subchart without modifying it directly.
+  * Helps manage dependencies cleanly in the parent chart.
+
+<br>
+
+### Global Values
+* Values defined under the `global:` key in `values.yaml` can be accessed by both the parent and its subcharts.
+  * Example:
+
+    ```yaml
+    global:
+      appName: myapp
+    ```
+  * This is useful for shared configuration like domain names or common credentials.
+
+<br>
+
+### Real Example: WordPress and MariaDB
+* The `WordPress` chart includes `MariaDB` as a subchart.
+* MariaDB is located in `charts/mariadb/` inside the WordPress chart directory.
+* To view MariaDB-specific values:
+
+  ```bash
+  helm show values charts/mariadb | less
+  ```
+* WordPress's parent `values.yaml` can override MariaDB subchart values using:
+
+  ```yaml
+  mariadb:
+    enabled: true
+    architecture: standalone
+  ```
+* External DB configs like `externalDatabase.*` belong to the parent chart and are accessed separately.
+
+
+<br><br><br>
+
+
