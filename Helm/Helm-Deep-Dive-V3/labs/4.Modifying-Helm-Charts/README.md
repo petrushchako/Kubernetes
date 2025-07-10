@@ -50,3 +50,13 @@ Helm provides solutions for customizing charts on the fly. In this hands-on lab,
     ```sh
     exit
     ```
+
+<br><br>
+
+### Verify the Blog Is Available at the Node Port on the Cluster
+1. Copy the public IP address provided for the lab and paste it into a new browser tab along with the port number.
+    ```sh
+    <PUBLIC_IP_ADDRESS>:30080
+    ```
+
+> The ghost blog should load at the public IP of the primary instance at the node port you configured.
