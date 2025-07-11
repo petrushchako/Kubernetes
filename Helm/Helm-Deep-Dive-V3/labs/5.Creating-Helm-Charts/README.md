@@ -18,8 +18,7 @@ ssh cloud_user@<PUBLIC_IP_ADDRESS>
 ```
 
 
-### Convert the Service Manifest into a Service Template in a New Helm Chart
-
+## Convert the Service Manifest into a Service Template in a New Helm Chart
 1. Create lab file structure:
 
     ```sh
@@ -43,14 +42,18 @@ Add the apiVersion, name, and version to the file (this is the minimum data requ
     `vim values.yaml`
 
 4. On the second console, view the home directory, which contains a kubernetes directory:
+
     `ls`
+
 5. Run the cd and ls commands to open and view the kubernetes directory. The directory contains an application.yaml file and a service.yaml file:
     ```sh
     cd kubernetes/
     ls
     ```
 6. View service.yaml:
+
     `vim service.yaml`
+
 7. On the first console, use the data from service.yaml to add data to values.yaml. Update nodePort to 30080:
 ```yaml
 service:
@@ -104,9 +107,9 @@ service:
     helm show values blog
     ```
 18. Verify the manifest's syntax is correct:
-    ```sh
-    helm install demo blog --dry-run
-    ```
+    
+    `helm install demo blog --dry-run`
+
 19. On the second console, run the cd and cat commands so you can compare the two service.yaml files.
     ```sh
     cd ../
@@ -114,11 +117,12 @@ service:
     ```
 20. Confirm the service.yaml data matches on the first and second consoles, with the exception of the nodePort value.
 21. After reviewing the service.yaml data, clear both consoles.
+
     `clear`
 
 <br><br><br>
 
-### Convert the Manifest for the Application into a Deployment Template in a New Helm Chart
+## Convert the Manifest for the Application into a Deployment Template in a New Helm Chart
 1. On the second console, view the application.yaml file:
     ```sh
     vim ./kubernetes/application.yaml
@@ -139,11 +143,17 @@ service:
 4. On the second console, exit out of the chart.
 5. On the first console, save the values file.
 6. On the second console, view the blog folder's values.yaml file:
+
     `vim ./blog/values.yaml`
+
 7. On the first console, copy the kubernetes folder's application.yaml file into the blog folder's templates directory:
+
     `cp ./kubernetes/application.yaml ./blog/templates/`
+
 8. View the application.yaml file in the blog folder's templates directory:
+
     `vim ./blog/templates/application.yaml`
+
 9. Make application.yaml a template by updating the file values as follows:
     ```yaml
     apiVersion: apps/v1
@@ -170,6 +180,41 @@ service:
             - containerPort: {{ .Values.blog.containerPort }}
     ```
 10. After updating the file values, save the template and clear the console:
+
     `clear`
+
 11. On the second console, exit out of the values.yaml file.
 
+
+<br><br><br>
+
+## Ensure the Manifests Render Correctly and Deploy the Application as a NodePort Application
+1. On the first console, run the helm show values command to view the blog folder's details:
+
+    `helm show values blog`
+
+2. Run the helm install command with the --dry-run directive. The manifest should display with the service set to run as a NodePort on port 30080 (in the lab video, this step produced an error message because there was a typo in the application.yaml file):
+
+    `helm install demo blog --dry-run`
+
+3. Install and deploy Helm:
+
+    `helm install demo blog`
+
+4. View the pod details (note that the pod's status is ContainerCreating):
+
+    `kubectl get po`
+
+5. While the container is being created, view the service details (note that the blog service is running on the correct NodePort of 30080):
+
+    `kubectl get svc`
+
+6. Verify the pod's status is now Running:
+
+    `kubectl get po`
+
+7. On the second console, exit out of session so you can view the public IP address for the Kubernetes primary server:
+
+    `exit`
+
+8. Copy the public IP address of the Kubernetes primary server and paste it into a new browser tab along with the port number: <PUBLIC_IP_ADDRESS>:30080. The ghost blog should load.
