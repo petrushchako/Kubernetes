@@ -117,3 +117,59 @@ service:
     `clear`
 
 <br><br><br>
+
+### Convert the Manifest for the Application into a Deployment Template in a New Helm Chart
+1. On the second console, view the application.yaml file:
+    ```sh
+    vim ./kubernetes/application.yaml
+    ```
+2. On the first console, view the blog folder's values.yaml file:
+    ```sh
+    vim ./blog/values.yaml
+    ```
+3. Below the existing file data, create a new blog section by inserting the following values. You can copy these values from the second console:
+    ```yaml
+    blog:
+    name: blog
+    replicas: 1
+    image: ghost:2.6-alpine
+    imagePullPolicy: Always
+    containerPort: 2368
+    ```
+4. On the second console, exit out of the chart.
+5. On the first console, save the values file.
+6. On the second console, view the blog folder's values.yaml file:
+    `vim ./blog/values.yaml`
+7. On the first console, copy the kubernetes folder's application.yaml file into the blog folder's templates directory:
+    `cp ./kubernetes/application.yaml ./blog/templates/`
+8. View the application.yaml file in the blog folder's templates directory:
+    `vim ./blog/templates/application.yaml`
+9. Make application.yaml a template by updating the file values as follows:
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+    name: {{ .Values.blog.name }}
+    labels:
+        app: {{ .Values.blog.name}}
+    spec:
+    replicas: {{ .Values.blog.replicas }}
+    selector:
+        matchLabels:
+        app: {{ .Values.blog.name }}
+    template:
+        metadata:
+        labels:
+            app: {{ .Values.blog.name }}
+        spec:
+        containers:
+        - name: {{ .Values.blog.name }}
+            image: {{ .Values.blog.image }}
+            imagePullPolicy: {{ .Values.blog.imagePullPolicy }}
+            ports:
+            - containerPort: {{ .Values.blog.containerPort }}
+    ```
+10. After updating the file values, save the template and clear the console:
+    `clear`
+11. On the second console, exit out of the values.yaml file.
+
