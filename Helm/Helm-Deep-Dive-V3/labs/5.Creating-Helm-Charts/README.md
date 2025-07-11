@@ -96,3 +96,24 @@ service:
             targetPort: {{ .Values.service.targetPort }}
             nodePort: {{ .Values.service.nodePort }}
     ```
+15. On the first console, save the template to return to the templates directory.
+16. On the second console, exit out of values.yaml to return to the blog folder.
+17. On the first console, run the cd and helm show values commands to view the blog details. At this point, we have a full Helm chart:
+    ```sh
+    cd ~/
+    helm show values blog
+    ```
+18. Verify the manifest's syntax is correct:
+    ```sh
+    helm install demo blog --dry-run
+    ```
+19. On the second console, run the cd and cat commands so you can compare the two service.yaml files.
+    ```sh
+    cd ../
+    cat ./kubernetes/service.yaml
+    ```
+20. Confirm the service.yaml data matches on the first and second consoles, with the exception of the nodePort value.
+21. After reviewing the service.yaml data, clear both consoles.
+    `clear`
+
+<br><br><br>
