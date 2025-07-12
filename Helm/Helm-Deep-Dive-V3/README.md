@@ -744,3 +744,26 @@ This is a **destructive** approach and should involve updating the chart’s ver
 <br><br><br>
 
 
+## More Advanced Charts
+
+## Helm Hooks: Pre and Post Actions
+### What Are Hooks?
+Hooks allow you to **inject jobs into a Helm chart's lifecycle**. They are useful when additional steps are required before or after the main chart operations, such as:
+* **Post-install hooks**: e.g., load initial data after a release is installed.
+* **Pre-upgrade hooks**: e.g., back up a database before upgrading a pod.
+* **Pre-install hooks**: e.g., create CRDs or stage secrets before installing the main chart.
+
+<br>
+
+### Types of Hooks
+Helm provides lifecycle hook types for:
+* `pre-install`
+* `post-install`
+* `pre-delete`
+* `post-delete`
+* `pre-upgrade`
+* `post-upgrade`
+* `pre-rollback`
+* `post-rollback`
+
+These are specified via the `helm.sh/hook` annotation.
