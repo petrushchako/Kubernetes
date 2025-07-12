@@ -793,3 +793,18 @@ metadata:
 * **Standalone Objects**: Hook resources are not part of the release manifest; manage their lifecycle carefully.
 * **Clean-Up**: Always set a hook delete policy unless debugging. Prevents orphaned pods.
 * **Work Area**: The `command` section of the hook pod is where real tasks are performed (e.g., `echo`, `sleep`, `kubectl`, backups).
+
+<br>
+
+### Demo Summary
+1. **Chart Creation**: A Helm chart is created to host the hook.
+2. **Hook Template**: A `hook.yaml` template defines a pod that:
+   * Uses `post-install` hook
+   * Executes `echo` and `sleep 10`
+3. **Testing Without Cleanup**:
+   * Omitting `hook-delete-policy` keeps the pod visible in `kubectl get pods`
+   * Shows as `Completed` after execution
+4. **With Cleanup**:
+   * Adding `hook-delete-policy: hook-succeeded` causes the hook pod to be deleted after a successful run
+   * The pod is no longer listed post-install
+
