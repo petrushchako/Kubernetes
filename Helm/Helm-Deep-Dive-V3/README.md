@@ -767,3 +767,29 @@ Helm provides lifecycle hook types for:
 * `post-rollback`
 
 These are specified via the `helm.sh/hook` annotation.
+
+<br>
+
+### Hook Structure
+Hooks are regular Kubernetes manifests stored in the chart’s `templates/` directory. They include special annotations to define when they should run:
+
+```yaml
+metadata:
+  annotations:
+    "helm.sh/hook": post-install
+    "helm.sh/hook-weight": "-5"
+    "helm.sh/hook-delete-policy": hook-succeeded
+```
+
+* **`helm.sh/hook`**: Defines the hook lifecycle point.
+* **`helm.sh/hook-weight`**: Controls execution order (lower weight runs first). Default is `0`.
+* **`helm.sh/hook-delete-policy`**: Cleans up hook pods (e.g., `hook-succeeded`, `hook-failed`, etc.).
+
+<br>
+
+### Behavior and Best Practices
+* **Execution Order**: Hooks with lower weights execute before those with higher weights.
+* **Failure Impact**: If a hook fails, the **entire release fails**.
+* **Standalone Objects**: Hook resources are not part of the release manifest; manage their lifecycle carefully.
+* **Clean-Up**: Always set a hook delete policy unless debugging. Prevents orphaned pods.
+* **Work Area**: The `command` section of the hook pod is where real tasks are performed (e.g., `echo`, `sleep`, `kubectl`, backups).
