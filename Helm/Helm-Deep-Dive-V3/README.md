@@ -827,3 +827,34 @@ metadata:
    restartPolicy: Never
    terminationGracePeriodSeconds: 0
    ```
+
+   <br><br><br>
+
+
+## Helm Chart Testing
+### What Is a Test in Helm?
+* A **test** in Helm is a **special kind of hook**.
+* Defined using the annotation:
+   `helm.sh/hook: test`
+* It runs a **command inside a pod**, and passes if the container exits with a success code (`0`).
+
+### Use Cases for Tests
+* Validate that services are reachable (e.g. via `wget`/`curl`).
+* Ensure configurations are applied (e.g., check if type = NodePort).
+* Confirm secrets like passwords are present.
+* Validate that a pod/service is actually running.
+
+<br>
+
+### Test Example
+* Helm’s default scaffold includes a test file:
+  `templates/tests/test-connection.yaml`
+* It uses a `busybox` pod to run `wget` on the service using values from `values.yaml`.
+
+<br>
+
+### Execution
+* Run tests using:
+  `helm test <release-name>`
+* Helm launches a pod to run the command. If it fails, the pod goes into error state.
+* You can troubleshoot test failures by manually checking service DNS resolution using utility pods.
