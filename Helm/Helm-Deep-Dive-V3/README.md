@@ -851,6 +851,24 @@ metadata:
   `templates/tests/test-connection.yaml`
 * It uses a `busybox` pod to run `wget` on the service using values from `values.yaml`.
 
+
+* `util.yaml`:
+   ```yaml
+   apiVersion: v1
+   kind: Pod
+   metadata:
+   name: dnsutils
+   namespace: default
+   spec:
+   containers:
+   - name: dnsutils
+      image: gcr.io/kubernetes-e2e-test-images/dnsutils:1.3
+      command:
+         - sleep
+         - "3600"
+      imagePullPolicy: IfNotPresent
+   restartPolicy: Always
+  ```
 <br>
 
 ### Execution
