@@ -1,0 +1,6 @@
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-btp
+spec:
+  package: ghcr.io/sap/crossplane-provider-btp/crossplane/provider-btp:v1.13.2
